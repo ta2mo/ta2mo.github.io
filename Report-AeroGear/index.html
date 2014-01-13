@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="ja">
     <head>
         <meta charset="utf-8">
         <title>reveal.js - The HTML Presentation Framework</title>
@@ -9,7 +9,7 @@
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
         <link rel="stylesheet" href="css/reveal.min.css">
-        <link rel="stylesheet" href="css/theme/default.css" id="theme">
+        <link rel="stylesheet" href="css/theme/beige.css" id="theme">
 
         <!-- For syntax highlighting -->
         <link rel="stylesheet" href="lib/css/zenburn.css">
@@ -26,7 +26,6 @@
 
     <body>
     <div class="reveal">
-        <!-- Any section element inside of this container is displayed as a slide -->
         <div class="slides">
             <section data-markdown="">
                 <script type="text/template">
@@ -41,9 +40,76 @@
 
             <section data-markdown="">
                 <script type="text/template">
-                    ## AeroGear概要
+                    ## 1.AeroGearとは(1)
+
+                    * iOS、Android、ブラウザにPush通知を送るライブラリ
+                    * オープンソース。JBossコミュニティで開発されている。
+                    * Javaで実装されている。
 
                 </script>
+            </section>
+
+            <section>
+                <section data-markdown>
+                    # 1.AeroGearとは(2)</h2>
+
+                    * AeroGearには２種類ある
+
+                        1. UnifiedPush Server
+                        1. SimplePush Server
+
+                    * UnifiedPush Serverを使用する
+
+                        * 理由は後述
+                </section>
+
+                <section data-markdown="">
+                    <script type="text/template">
+                        ## 1. UnifiedPush Serverとは
+
+                        * iOS、Android、ブラウザへ"同時に"Push通知できる。
+                        * iOSはPush Notification Service、AndroidはGoogle Cloud Messagingを使用する。
+                        * JBossASに上にDeployして動かす
+                    </script>
+                </section>
+
+                <section data-markdown="">
+                    <script type="text/template">
+                        ## 2. SiplePush Serverとは
+
+                        * Mozillaの[SimplePush](https://wiki.mozilla.org/WebAPI/SimplePush)に対応する実装
+                        * ブラウザのみにPush通知を送る用
+                        * NettyやVert.xなどの軽量APサーバでも動作可
+                    </script>
+                </section>
+            </section>
+
+            <section>
+                <section data-markdown="">
+                    <script type="text/template">
+                        ## 2.AeroGearを動作させるために必要な環境
+
+                        - サーバ側
+
+                            * JBossAS
+                            * Database(H2、MySQL、PostgreSQL)
+
+                        - デバイス側
+
+                            * デバイス毎に用意されているAeroGearのライブラリ(頑張ればなくても良いかも)
+
+                    </script>
+                </section>
+
+                <section data-markdown="">
+                    <script type="text/template">
+                        ## 公式サイトの図
+
+                        ![UnifiedPushServer](img/aerogear_unified_push_server.png "img")
+
+                        ##### [引用元](http://aerogear.org/docs/specs/aerogear-server-push/)
+                    </script>
+                </section>
             </section>
 
         </div>
