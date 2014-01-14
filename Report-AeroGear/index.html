@@ -2,11 +2,7 @@
 <html lang="ja">
     <head>
         <meta charset="utf-8">
-        <title>reveal.js - The HTML Presentation Framework</title>
-        <meta name="description" content="A framework for easily creating beautiful presentations using HTML">
-        <meta name="author" content="Hakim El Hattab">
-        <meta name="apple-mobile-web-app-capable" content="yes" />
-        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+        <title>Report-AeroGear</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
         <link rel="stylesheet" href="css/reveal.min.css">
         <link rel="stylesheet" href="css/theme/beige.css" id="theme">
@@ -33,7 +29,7 @@
 
                     1. AeroGearとは
                     1. AeroGearを利用するための構成
-                    1. サンプル作成
+                    1. サンプル作成した結果
                     1. Appendix
                 </script>
             </section>
@@ -51,7 +47,7 @@
 
             <section>
                 <section data-markdown>
-                    # 1.AeroGearとは(2)</h2>
+                    ## 1.AeroGearとは(2)</h2>
 
                     * AeroGearには２種類ある
 
@@ -87,7 +83,20 @@
             <section>
                 <section data-markdown="">
                     <script type="text/template">
-                        ## 2.AeroGearを動作させるために必要な環境
+                        ## 2. AeroGearの構成
+
+                        ### 構成図
+
+                        ![構成図](img/)
+
+                    </script>
+                </section>
+
+                <section data-markdown="">
+                    <script type="text/template">
+                        ## Appendix
+
+                        ### AeroGearを動作させるために必要な環境
 
                         - サーバ側
 
@@ -103,13 +112,62 @@
 
                 <section data-markdown="">
                     <script type="text/template">
-                        ## 公式サイトの図
+                        ## Appendix
+
+                        ### 公式サイトの図
 
                         ![UnifiedPushServer](img/aerogear_unified_push_server.png "img")
 
                         ##### [引用元](http://aerogear.org/docs/specs/aerogear-server-push/)
                     </script>
                 </section>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## 3.サンプル作成してみて
+
+                    ### メリット
+
+                    * 同じサーバに対してPUSH依頼することでiOS、Android、ブラウザへ同時にPUSH通知できる。
+                    * AeroGearサーバはJVM上で動作する。
+                    * ほぼステートレスなのでスケールができる。
+                    * Java実装なので拡張できそう。
+                    * AeroGearサーバはHTTPリクエストで操作する。(REST)
+
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## 3.サンプル作成してみて
+
+                    ### デメリット
+
+                    * デバイス毎の通知プラットフォームの仕様変更に対してAeroGearライブラリが追随できるのか不明。
+                    * 英語ドキュメントのみ。(頑張る)
+                    * 結局は端末管理やアプリケーションの管理システムが必要。
+                    * 配信するコンテンツ(End Point)自体は別に用意する必要あり。
+
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## 3.サンプルを作成してみて
+
+                    ### 未調査
+
+                    * End Point自体を通知することができるのか。
+                    * AeroGearの拡張ポイント
+
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    # END
+                </script>
             </section>
 
         </div>
