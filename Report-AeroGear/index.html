@@ -63,7 +63,7 @@
                     <script type="text/template">
                         ## 1. UnifiedPush Serverとは
 
-                        * iOS、Android、ブラウザへ"同時に"Push通知できる。
+                        * iOS、Android、ブラウザへ"同時に"Push通知できる。(Unified=統一)
                         * iOSはPush Notification Service、AndroidはGoogle Cloud Messagingを使用する。
                         * JBossASに上にDeployして動かす
                     </script>
@@ -76,6 +76,18 @@
                         * Mozillaの[SimplePush](https://wiki.mozilla.org/WebAPI/SimplePush)に対応する実装
                         * ブラウザのみにPush通知を送る用
                         * NettyやVert.xなどの軽量APサーバでも動作可
+                    </script>
+                </section>
+
+                <section data-markdown="">
+                    <script type="text/template">
+                        ## 大まかな違い
+
+                        | AeroGear Serverの種類  | iOSへPush  | AndroidへPush | ブラウザへのPush |
+                        | :-------------------: | :--------: | :-----------: | :------------: |
+                        | UnifiedPush Server    | ○          | ○             | ○              |
+                        | SimplePush Server     | ☓          | ☓             | ○              |
+
                     </script>
                 </section>
             </section>
@@ -158,6 +170,7 @@
 
                     * End Point自体を通知することができるのか。
                     * AeroGearの拡張ポイント
+                    * ライブラリの更新頻度
 
                 </script>
             </section>
