@@ -32,18 +32,18 @@
             <script type="text/template">
                 ## 調査項目
 
-                1. [iOS、Android、ブラウザへPushする際の制限](#/v01)
-                1. [各デバイスを統一して送付する仕組みの概要](#/v02)
-                1. [通知できる内容](#/v03)
-                1. [AeroGearの拡張ポイント](#/v04)
-                1. [ライブラリの更新頻度、マイルストーン](#/v05)
-                1. [ライセンスに関して](#/v06)
+                1. [iOS、Android、ブラウザへPushする際の制限](#/2)
+                1. [各デバイスを統一して送付する仕組みの概要](#/3)
+                1. [通知できる内容](#/4)
+                1. [AeroGearの拡張ポイント](#/5)
+                1. [ライブラリの更新頻度、マイルストーン](#/6)
+                1. [ライセンスに関して](#/7)
 
             </script>
         </section>
 
-        <section>
-            <section data-markdown="" id="v01">
+        <section data-background="#BAC494">
+            <section data-markdown="">
                 <script type="text/template">
                     # 1. iOS、Android、ブラウザへPushする際の制限
 
@@ -57,8 +57,8 @@
             </section>
         </section>
 
-        <section>
-            <section data-markdown="" id="v02">
+        <section data-background="#809142">
+            <section data-markdown="">
                 <script type="text/template">
                     # 2. 各デバイスを統一して送付する仕組みの概要
                 </script>
@@ -66,13 +66,118 @@
 
             <section data-markdown="">
                 <script type="text/template">
+                    ## 概要図
+
+                    ### 公式サイトの図
+
+                    ![UnifiedPushServer](img/aerogear_unified_push_server.png "img")
+
+                    ##### [引用元](http://aerogear.org/docs/specs/aerogear-server-push/)
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## Push通知を送るための手順
+
+                    - デバイスを登録する手順
+
+                      1. アプリケーション情報を登録する。
+                      1. デバイスにアプリケーションをインストールする
+                      1. デバイスをAeroGearサーバに登録し、デバイスはトークンを受け取る。
+
+                    - デバイスに通知を送る手順 →[実装](https://github.com/aerogear/aerogear-unifiedpush-server/blob/master/src/main/java/org/jboss/aerogear/unifiedpush/service/sender/impl/SenderServiceImpl.java)
+
+                      1. AeroGearサーバのSender APIを叩く
+                      1. AeroGearサーバがデバイストークンを元にPushネットワーク(APNs、GCM、SipmlePush)へPush依頼
+                      1. Pushネットワークによって通知される
 
                 </script>
             </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## PushApplication API
+
+                    - アプリケーション情報のCRUDを担当する
+
+                      →[詳細ドキュメント](http://aerogear.org/docs/specs/aerogear-push-rest/PushApplication/)
+
+                      - アプリケーション情報登録時に利用する
+
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## Variants API
+
+                    - Android、iOS、SimplePush用の情報(Variants)のCRUDを担当する
+
+                    →[詳細ドキュメント](http://aerogear.org/docs/specs/aerogear-push-rest/Variants/)
+
+                    - AndriodとiOSのVariantにはAPIキーや証明書を登録する
+
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## Device/Installation Registration API
+
+                    - デバイス情報のCRUDを担当する
+
+                      →[詳細ドキュメント](http://aerogear.org/docs/specs/aerogear-push-rest/DeviceRegistration/)
+
+                      - AeroGearSDKがAeroGearサーバに端末登録リクエストを行う際に使用する
+
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## Sender API
+
+                    - Push送信リクエストを受けて各サービスに対してPush通知依頼を投げる担当
+
+                      → [Push送信リクエスト例](http://aerogear.org/docs/specs/aerogear-server-push/#restful-sender)
+
+                      - デバイスの種類をフィルタしてPush通知できる
+
+                        →デバイス形式(deviceType)はデバイス登録時に登録する
+
+                      - 送信する宛先にはアプリケーション固有の別名(alias)または登録時のデバイス形式を使用する
+
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## Appendix
+
+                    ### デバイス登録に必要なパラメータ
+
+                    - deviceToken
+                    - variantID
+                    - variantSecret
+
+
+                    ### オプション(必須でない)のパラメータ
+
+                    - deviceType
+                    - operatingSystem
+                    - osVersion
+                    - alias
+                    - categories
+                    - simplePushEndpoint
+
+                </script>
+            </section>
+
         </section>
 
-        <section>
-            <section id="v03" data-markdown="">
+        <section data-background="#96A5F8">
+            <section data-markdown="">
                 <script type="text/template">
                     # 3. 通知できる内容
                 </script>
@@ -85,7 +190,7 @@
             </section>
         </section>
 
-        <section>
+        <section data-background="#CB9E67">
             <section id="v04" data-markdown="">
                 <script type="text/template">
                     # 4. AeroGearの拡張ポイント
@@ -99,8 +204,8 @@
             </section>
         </section>
 
-        <section>
-            <section id="v05" data-markdown="">
+        <section data-background="#ABA2F7">
+            <section data-markdown="">
                 <script type="text/template">
                     # 5. ライブラリの更新頻度、マイルストーン<!-- TODO:変更内容も追加しよう -->
                 </script>
@@ -184,8 +289,8 @@
             </section>
         </section>
 
-        <section>
-            <section  id="v06" data-markdown="">
+        <section data-background="#94A8C4">
+            <section data-markdown="">
                 <script type="text/template">
                     # 6.ライセンスに関して
 
