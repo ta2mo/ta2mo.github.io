@@ -147,6 +147,7 @@
                         →デバイス形式(deviceType)はデバイス登録時に登録する
 
                       - 送信する宛先にはアプリケーション固有の別名(alias)または登録時のデバイス形式を使用する
+                      - Sender APIが各サービスの違いを吸収している
 
                 </script>
             </section>
@@ -185,9 +186,31 @@
 
             <section data-markdown="">
                 <script type="text/template">
+                    ## iOSの場合
+
+                    - 送信できるメッセージサイズ:256 byte
+                    - Java Apple Push Notification Service Libraryで送信
 
                 </script>
             </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## Androidの場合
+
+                    - 送信できるメッセージサイズ:4096 byte
+                    - Sender APIへリクエストのmessageオブジェクトがそのまま端末に送信される。
+                    - payload
+
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## ブラウザ(SimplePush)の場合
+                </script>
+            </section>
+
         </section>
 
         <section data-background="#CB9E67">
