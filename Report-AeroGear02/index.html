@@ -42,7 +42,7 @@
             </script>
         </section>
 
-        <section data-background="#BAC494">
+        <section data-background="#96A5F8">
             <section data-markdown="">
                 <script type="text/template">
                     # 1. iOS、Android、ブラウザへPushする際の制限
@@ -57,7 +57,7 @@
             </section>
         </section>
 
-        <section data-background="#809142">
+        <section data-background="#CB9E67">
             <section data-markdown="">
                 <script type="text/template">
                     # 2. 各デバイスを統一して送付する仕組みの概要
@@ -100,10 +100,10 @@
                     ## PushApplication API
 
                     - アプリケーション情報のCRUDを担当する
+                    - アプリケーション情報登録時に利用する
 
                       →[詳細ドキュメント](http://aerogear.org/docs/specs/aerogear-push-rest/PushApplication/)
 
-                      - アプリケーション情報登録時に利用する
 
                 </script>
             </section>
@@ -113,10 +113,9 @@
                     ## Variants API
 
                     - Android、iOS、SimplePush用の情報(Variants)のCRUDを担当する
-
-                    →[詳細ドキュメント](http://aerogear.org/docs/specs/aerogear-push-rest/Variants/)
-
                     - AndriodとiOSのVariantにはAPIキーや証明書を登録する
+
+                      →[詳細ドキュメント](http://aerogear.org/docs/specs/aerogear-push-rest/Variants/)
 
                 </script>
             </section>
@@ -126,10 +125,10 @@
                     ## Device/Installation Registration API
 
                     - デバイス情報のCRUDを担当する
+                    - AeroGearSDKがAeroGearサーバに端末登録リクエストを行う際に使用する
 
                       →[詳細ドキュメント](http://aerogear.org/docs/specs/aerogear-push-rest/DeviceRegistration/)
 
-                      - AeroGearSDKがAeroGearサーバに端末登録リクエストを行う際に使用する
 
                 </script>
             </section>
@@ -140,14 +139,15 @@
 
                     - Push送信リクエストを受けて各サービスに対してPush通知依頼を投げる担当
 
+
+                    - デバイスの種類をフィルタしてPush通知できる
+
+                       →デバイス形式(deviceType)はデバイス登録時に登録する
+
+                    - 送信する宛先にはアプリケーション固有の別名(alias)または登録時のデバイス形式を使用する
+                    - Sender APIに各サービスの違いを把握した上でリクエストを投げる
+
                       → [Push送信リクエスト例](http://aerogear.org/docs/specs/aerogear-server-push/#restful-sender)
-
-                      - デバイスの種類をフィルタしてPush通知できる
-
-                        →デバイス形式(deviceType)はデバイス登録時に登録する
-
-                      - 送信する宛先にはアプリケーション固有の別名(alias)または登録時のデバイス形式を使用する
-                      - Sender APIが各サービスの違いを吸収している
 
                 </script>
             </section>
@@ -177,7 +177,7 @@
 
         </section>
 
-        <section data-background="#96A5F8">
+        <section data-background="#BAC494">
             <section data-markdown="">
                 <script type="text/template">
                     # 3. 通知できる内容
@@ -189,7 +189,7 @@
                     ## iOSの場合
 
                     - 送信できるメッセージサイズ:256 byte
-                    - Java Apple Push Notification Service Libraryで送信
+                    - [Java Apple Push Notification Service Library](https://github.com/notnoop/java-apns)を利用して実装されている
 
                 </script>
             </section>
@@ -200,7 +200,6 @@
 
                     - 送信できるメッセージサイズ:4096 byte
                     - Sender APIへリクエストのmessageオブジェクトがそのまま端末に送信される。
-                    - payload
 
                 </script>
             </section>
@@ -213,21 +212,29 @@
 
         </section>
 
-        <section data-background="#CB9E67">
+        <section data-background="#ABA2F7">
             <section id="v04" data-markdown="">
                 <script type="text/template">
                     # 4. AeroGearの拡張ポイント
+
                 </script>
             </section>
 
             <section data-markdown="">
                 <script type="text/template">
+                    ## 対象ソース
+                    -
+
+                    - 送信
+
+                      - Push対象サービスへ通知する独自Senderを作成する
+                      - [SenderServiceImpl.java](https://github.com/aerogear/aerogear-unifiedpush-server/blob/master/src/main/java/org/jboss/aerogear/unifiedpush/service/sender/impl/SenderServiceImpl.java)に独自Senderで送信するための分岐追加。
 
                 </script>
             </section>
         </section>
 
-        <section data-background="#ABA2F7">
+        <section data-background="#809142">
             <section data-markdown="">
                 <script type="text/template">
                     # 5. ライブラリの更新頻度、マイルストーン<!-- TODO:変更内容も追加しよう -->
@@ -237,6 +244,8 @@
             <section data-markdown="">
                 <script type="text/template">
                     ## 総括
+
+                    - 開発の開始時期はライブラリが2012/07から、UnifiedPush Serverは2013/04
                 </script>
             </section>
 
