@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=1024" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <title>XMPP調査</title>
+    
+    <meta name="description" content="impress.js is a presentation tool based on the power of CSS3 transforms and transitions in modern browsers and inspired by the idea behind prezi.com." />
+
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:regular,semibold,italic,italicsemibold|PT+Sans:400,700,400italic,700italic|PT+Serif:400,700,400italic,700italic" rel="stylesheet" />
+    <link href="css/impress.css" rel="stylesheet" />
+    
+    <link rel="shortcut icon" href="favicon.png" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+</head>
+<body class="impress-not-supported">
+
+<div class="fallback-message">
+    <p>Your browser <b>doesn't support the features required</b> by impress.js, so you are presented with a simplified version of this presentation.</p>
+    <p>For the best experience please use the latest <b>Chrome</b>, <b>Safari</b> or <b>Firefox</b> browser.</p>
+</div>
+
+<div id="impress">
+    <div class="step" data-x="-1500" data-y="-1500" data-z="2000" data-scale="6">
+        <h1>XMPP調査報告書</h1>
+    </div>
+
+    <div class="step" data-x="0" data-y="-1500" data-z="1000" data-scale="4">
+        <p>XMPPとは</p>
+    </div>
+
+    <div class="step" data-x="-1000" data-y="-1500" data-z="-5000" data-scale="1">
+        <ul>
+            <li>
+                <p><a href="http://ja.wikipedia.org/wiki/Extensible_Messaging_and_Presence_Protocol">Extensible Messaging and Presence Protocol</a>の略称</p>
+            </li>
+            <li>
+                <p>XMLをベースにしたプロトコルの一種</br></p>
+            </li>
+            <li>
+                <p>主にIM(Instant Messenger)やIRC向けに使われる</br></p>
+            </li>
+        </ul>
+    </div>
+
+    <div class="step" data-x="0" data-y="-1500" data-z="-5000" data-scale="1">
+        <h2>利用実績</h2>
+        <ul>
+            <li><p>Google talk</p></li>
+            <li><p>Facebookのチャット</p></li>
+            <li><p>iChat Server</p></li>
+        </ul>
+    </div>
+
+    <div class="step" data-x="1000" data-y="-1500" data-z="-5000" data-scale="1">
+        <h2>具体的なメッセージング</h2>
+
+        <p>→<a href="">参考サイト</a></p>
+    </div>
+
+    <div class="step" data-x="0" data-y="-1200" data-scale="4">
+        <p>XMPPを実装したOSSプロダクト</p>
+    </div>
+
+    <div class="step" data-x="-1000" data-y="-500" data-z="-5000" data-scale="1">
+        <h2>サーバ側のプロダクト</h2>
+        <ul>
+            <li><p><a href="https://mina.apache.org/vysper-project/">Apache Vysper</a> (Apache License2.0)</p></li>
+            <li><p><a href="http://www.igniterealtime.org/projects/openfire/">Openfire</a> (Apache License)</p></li>
+            <li><p><a href="http://www.getvines.com/">Vines</a> (MIT)</p></li>
+        </ul>
+
+        </br><p>...etc→<a href="http://xmpp.org/xmpp-software/servers/">参考サイト</a></p>
+    </div>
+
+    <div class="step" data-x="0" data-y="-500" data-z="-5000" data-scale="1">
+        <h2>モバイルデバイス用ライブラリ</h2>
+        <p>iOS用ライブラリ</p>
+        <ul>
+            <li><a href="https://github.com/robbiehanson/XMPPFramework">XMPPFramework</a></li>
+        </ul>
+
+        <p>Android用ライブラリ</p>
+        <ul>
+            <li><a href="https://github.com/flowdalic/asmack">asmack</a></li>
+            <li><a href="http://freecode.com/projects/feridian">Echomine Feridian</a></li>
+            <li><a href="https://github.com/EmiteGWT/emite">emite</a></li>
+        </ul>
+
+        <p>→<a href="http://xmpp.org/xmpp-software/libraries/">参考サイト</a></p>
+    </div>
+
+    <div class="step" data-x="0" data-y="-900" data-scale="4">
+        <p>未調査項目</p>
+    </div>
+
+    <div class="step" data-x="-1000" data-y="500" data-z="-5000" data-scale="1">
+        <ul>
+            <li><p>スケール</p></li>
+            <li><p>モバイルデバイスの不安定なネットワーク</p></li>
+            <li><p>リアルタイム性</p></li>
+            <li><p>その他デバイス毎の利用可否、実装方法</p></li>
+            <li><p>セキュリティ、通信経路上の暗号化</p></li>
+        </ul>
+    </div>
+
+<div class="hint">
+    <p>Use a spacebar or arrow keys to navigate</p>
+</div>
+<script>
+if ("ontouchstart" in document.documentElement) { 
+    document.querySelector(".hint").innerHTML = "<p>Tap on the left or right to navigate</p>";
+}
+</script>
+
+<script src="js/impress.js"></script>
+<script>impress().init();</script>
+
+<!--
+    
+    The `impress()` function also gives you access to the API that controls the presentation.
+    
+    Just store the result of the call:
+    
+        var api = impress();
+    
+    and you will get three functions you can call:
+    
+        `api.init()` - initializes the presentation,
+        `api.next()` - moves to next step of the presentation,
+        `api.prev()` - moves to previous step of the presentation,
+        `api.goto( idx | id | element, [duration] )` - moves the presentation to the step given by its index number
+                id or the DOM element; second parameter can be used to define duration of the transition in ms,
+                but it's optional - if not provided default transition duration for the presentation will be used.
+    
+    You can also simply call `impress()` again to get the API, so `impress().next()` is also allowed.
+    Don't worry, it wont initialize the presentation again.
+    
+    For some example uses of this API check the last part of the source of impress.js where the API
+    is used in event handlers.
+    
+-->
+
+</body>
+</html>
