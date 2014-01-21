@@ -26,7 +26,7 @@
         <h1>XMPP調査報告書</h1>
     </div>
 
-    <div class="step" data-x="0" data-y="-1500" data-z="1000" data-scale="4">
+    <div class="step" data-x="0" data-y="-1500" data-scale="4">
         <p>XMPPとは</p>
     </div>
 
@@ -104,6 +104,94 @@
             <li><p>その他デバイス毎の利用可否、実装方法</p></li>
             <li><p>セキュリティ、通信経路上の暗号化</p></li>
         </ul>
+    </div>
+
+    <div class="step" data-x="0" data-y="-600" data-scale="4">
+        <p>openfire導入メモ</p>
+    </div>
+
+    <div class="step" data-x="-1000" data-y="900" data-z="-5000" data-scale="1">
+        <h2>動作要件</h2>
+        <ul>
+            <li>JDK(5+?)</li>
+            <li>Database</li>
+            <li style="list-style: none">
+                <ul style="list-style: none">
+                    <il>MySQL</il>
+                    <li>Oracle</li>
+                    <li>SQLServer</li>
+                    <li>PostgreSQL</li>
+                    <li>DB2</li>
+                    <li>HSQLDB</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <div class="step" data-x="0" data-y="900" data-z="-5000" data-scale="1">
+        <h2>Linuxへのインストール手順 1</h2>
+        <ol>
+            <li><a href="http://www.igniterealtime.org/downloads/index.jsp">本家のダウンロードリンク</a>からrpmをダウンロード</li>
+            <li>rpmコマンドでインストール</li>
+        </ol>
+    </div>
+
+    <div class="step" data-x="1000" data-y="900" data-z="-5000" data-scale="1">
+        <h2>Linuxへのインストール手順 2</h2>
+        <ol>
+            <li><a href="http://www.igniterealtime.org/builds/openfire/docs/latest/documentation/database.html">本家の案内</a>を元にDB毎に設定</li>
+            <li style="list-style: none">MySQLの場合
+                <ol>
+                    <li>create database openfire;</li>
+                    <li>cat openfire_mysql.sql | mysql openfire; </li>
+                </ol>
+                <p>SQLが通らない場合にはVARCHAR(1024)をVARCHAR(255)に書き換える。</p>
+            </li>
+        </ol>
+    </div>
+
+    <div class="step" data-x="2000" data-y="900" data-z="-5000" data-scale="1">
+        <h2>Linuxへのインストール手順 3</h2>
+        <ol>
+            <li>/etc/init.d/openfire start</li>
+            <li>http://hostname:9090/にブラウザからアクセス</li>
+        </ol>
+    </div>
+
+    <div class="step" data-x="3000" data-y="900" data-z="-5000" data-scale="1">
+        <h2>Linuxへのインストール手順 4</h2>
+        <p>言語設定</p>
+        <img src="img/openfire_001.png" />
+    </div>
+
+    <div class="step" data-x="4000" data-y="900" data-z="-5000" data-scale="1">
+        <h2>Linuxへのインストール手順 5</h2>
+        <p>サーバ設定</p>
+        <img src="img/openfire_002.png" />
+    </div>
+
+    <div class="step" data-x="5000" data-y="900" data-z="-5000" data-scale="1">
+        <h2>Linuxへのインストール手順 6</h2>
+        <p>DB選択</p>
+        <img src="img/openfire_003.png" />
+    </div>
+
+    <div class="step" data-x="6000" data-y="900" data-z="-5000" data-scale="1">
+        <h2>Linuxへのインストール手順 7</h2>
+        <p>DB接続情報</p>
+        <img src="img/openfire_004.png" />
+    </div>
+
+    <div class="step" data-x="7000" data-y="900" data-z="-5000" data-scale="1">
+        <h2>Linuxへのインストール手順 8</h2>
+        <p>ユーザプロファイル情報</p>
+        <img src="img/openfire_005.png" />
+    </div>
+
+    <div class="step" data-x="8000" data-y="900" data-z="-5000" data-scale="1">
+        <h2>Linuxへのインストール手順 9</h2>
+        <p>管理ユーザ設定</p>
+        <img src="img/openfire_006.png" />
     </div>
 
 <div class="hint">
