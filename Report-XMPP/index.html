@@ -142,6 +142,8 @@
             <li style="list-style: none">MySQLの場合
                 <ol>
                     <li>create database openfire;</li>
+                    <li>GRANT ALL ON openfire.* TO openfire_admin IDENTIFIED BY 'openfire';</li>
+                    <li>GRANT ALL ON openfire.* TO openfire_admin@'localhost' IDENTIFIED BY 'openfire';</li>
                     <li>cat openfire_mysql.sql | mysql openfire; </li>
                 </ol>
                 <p>SQLが通らない場合にはVARCHAR(1024)をVARCHAR(255)に書き換える。</p>
