@@ -96,20 +96,54 @@
         <p>未調査項目</p>
     </div>
 
-    <div class="step" data-x="-1000" data-y="100" data-z="-5000" data-scale="1">
+    <div class="step" data-x="-1000" data-y="300" data-z="-5000" data-scale="1">
         <ul>
-            <li><p>スケール(多数のコネクションに対応する)</p></li>
             <li><p>リアルタイム性</p></li>
             <li><p>その他デバイス毎の利用可否、実装方法</p></li>
             <li><p>セキュリティ、通信経路上の暗号化</p></li>
         </ul>
     </div>
 
+    <div class="step" data-x="0" data-y="300" data-z="-5000" data-scale="1">
+        <h2>コネクション数についての調査 1</h2>
+        <p>コネクションを増やすと監視するポートが増えるはず(仮説)</p><br/>
+        <p>2クライアントつないでnetstatで監視ポートを見てみる</p>
+
+        <!--
+        <blockquote>
+        -->
+        <div class="slide" style="height:250px;width:700px;">
+            <p>
+                tcp        0      0 ::ffff:192.168.:xmpp-client ::ffff:192.168.10.10:35222  ESTABLISHED ←1クライアント目</br>
+                tcp        0      0 ::ffff:192.168.:xmpp-client ::ffff:192.168.3.18:57925   ESTABLISHED ←2クライアント目</br>
+            </p>
+        </div>
+        <!--
+        </blockquote>
+        -->
+
+        </br><p>仕様通りに1クライアント毎に1ポート</p>
+    </div>
+
+    <div class="step" data-x="1000" data-y="300" data-z="-5000" data-scale="1">
+        <h2>コネクション数についての調査 2</h2>
+        <p>調査結果から捌けるクライアント数=用意できるポート数</p></br>
+        <q>
+            <h3>使用できるポート数計算式(超概算)</h3>
+            <div class="slide" style="height: 100px;width: 700px;">
+                <p style="vertical-align: middle;">
+                65535 - 1024(Well Known) - 他のサービス</br>
+                    = 使用できるポート数
+                </p>
+            </div>
+        </q>
+    </div>
+
     <div class="step" data-x="0" data-y="-600" data-scale="4">
         <p>openfire導入メモ</p>
     </div>
 
-    <div class="step" data-x="-1000" data-y="900" data-z="-5000" data-scale="1">
+    <div class="step" data-x="-1000" data-y="1500" data-z="-5000" data-scale="1">
         <h2>動作要件</h2>
         <ul>
             <li>JDK(5+?)</li>
@@ -127,7 +161,7 @@
         </ul>
     </div>
 
-    <div class="step" data-x="0" data-y="900" data-z="-5000" data-scale="1">
+    <div class="step" data-x="0" data-y="1500" data-z="-5000" data-scale="1">
         <h2>Linuxへのインストール手順 1</h2>
         <ol>
             <li><a href="http://www.igniterealtime.org/downloads/index.jsp">本家のダウンロードリンク</a>からrpmをダウンロード</li>
@@ -135,7 +169,7 @@
         </ol>
     </div>
 
-    <div class="step" data-x="1000" data-y="900" data-z="-5000" data-scale="1">
+    <div class="step" data-x="1000" data-y="1500" data-z="-5000" data-scale="1">
         <h2>Linuxへのインストール手順 2</h2>
         <ol>
             <li><a href="http://www.igniterealtime.org/builds/openfire/docs/latest/documentation/database.html">本家の案内</a>を元にDB毎に設定</li>
@@ -151,7 +185,7 @@
         </ol>
     </div>
 
-    <div class="step" data-x="2000" data-y="900" data-z="-5000" data-scale="1">
+    <div class="step" data-x="2000" data-y="1500" data-z="-5000" data-scale="1">
         <h2>Linuxへのインストール手順 3</h2>
         <ol>
             <li>/etc/init.d/openfire start</li>
@@ -159,37 +193,37 @@
         </ol>
     </div>
 
-    <div class="step" data-x="3000" data-y="900" data-z="-5000" data-scale="1">
+    <div class="step" data-x="3000" data-y="1500" data-z="-5000" data-scale="1">
         <h2>Linuxへのインストール手順 4</h2>
         <p>言語設定</p>
         <img src="img/openfire_001.png" />
     </div>
 
-    <div class="step" data-x="4000" data-y="900" data-z="-5000" data-scale="1">
+    <div class="step" data-x="4000" data-y="1500" data-z="-5000" data-scale="1">
         <h2>Linuxへのインストール手順 5</h2>
         <p>サーバ設定</p>
         <img src="img/openfire_002.png" />
     </div>
 
-    <div class="step" data-x="5000" data-y="900" data-z="-5000" data-scale="1">
+    <div class="step" data-x="5000" data-y="1500" data-z="-5000" data-scale="1">
         <h2>Linuxへのインストール手順 6</h2>
         <p>DB選択</p>
         <img src="img/openfire_003.png" />
     </div>
 
-    <div class="step" data-x="6000" data-y="900" data-z="-5000" data-scale="1">
+    <div class="step" data-x="6000" data-y="1500" data-z="-5000" data-scale="1">
         <h2>Linuxへのインストール手順 7</h2>
         <p>DB接続情報</p>
         <img src="img/openfire_004.png" />
     </div>
 
-    <div class="step" data-x="7000" data-y="900" data-z="-5000" data-scale="1">
+    <div class="step" data-x="7000" data-y="1500" data-z="-5000" data-scale="1">
         <h2>Linuxへのインストール手順 8</h2>
         <p>ユーザプロファイル情報</p>
         <img src="img/openfire_005.png" />
     </div>
 
-    <div class="step" data-x="8000" data-y="900" data-z="-5000" data-scale="1">
+    <div class="step" data-x="8000" data-y="1500" data-z="-5000" data-scale="1">
         <h2>Linuxへのインストール手順 9</h2>
         <p>管理ユーザ設定</p>
         <img src="img/openfire_006.png" />
