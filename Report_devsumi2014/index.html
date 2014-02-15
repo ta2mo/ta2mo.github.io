@@ -1,0 +1,908 @@
+<!doctype html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <title>デブサミ2014 感想</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="css/reveal.min.css">
+    <link rel="stylesheet" href="css/theme/beige.css" id="theme">
+
+    <!-- For syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <!-- If the query includes 'print-pdf', use the PDF print sheet -->
+    <script>
+        document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+    </script>
+
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+<div class="reveal">
+    <div class="slides">
+        <section>
+            <h1>デブサミ2014 感想</h1><br>
+        </section>
+
+        <section data-markdown="">
+            <script type="text/template">
+                ## 目次.1
+
+                1. [デブサミとは](#/2)
+
+                1. [聴講したセッションの内容まとめ](#/3)
+                  1. [クラウドがもたらした多様な破壊と創造](#/3)
+                  1. [社内システムの構造と設計、実装のはなし](#/4)
+                  1. [新卒エンジニア研修ですべきことできること](#/5)
+                  1. [Stormで実現するビッグデータのリアルタイム処理プラットフォーム](#/6)
+                  1. [何故クックパッドのサービス開発は日々進化しているのか](#/7)
+                  1. [Team GeekによるFearless Change](#/8)
+                  1. [伝統的な品質管理モデルをアジャイルに適合させる処方箋](#/9)
+                  1. [モバイル版グーグルマップのUXはいかにして作られたのか？](#/10)
+                  1. [エンジニアだからできる 自由な生き方](#/11)
+                  1. [Play2/Scalaでドメイン駆動設計を利用した大規模Webアプリケーションのスクラム開発の勘所](#/12)
+
+
+                1. まとめ
+                1. 関連リンク
+
+            </script>
+        </section>
+
+        <section data-background="#96A5F8">
+            <section data-markdown="">
+                <script type="text/template">
+                    # 1. デブサミとは
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    # 1.デブサミとは
+
+                    * Developers Summitの略
+                    * IT開発者の経験やノウハウをプレゼンやスピーチで発表する
+                    * 内容としては開発手法、マネジメント、先端技術について、事例の紹介など
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## テーマ、ホットワード
+
+                    * 2013年のホットワードはAgile・スクラムの再発見、クラウドの浸透、UX
+                    * 2014年のホットワードは？
+                </script>
+            </section>
+        </section>
+
+        <section data-background="#CB9E67">
+            <section data-markdown="">
+                <script type="text/template">
+                    # クラウドがもたらした多様な破壊と創造
+
+                    by 新野淳一、玉川憲 ほか
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## クラウドが破壊した事例
+
+                    * 従来型のSI
+
+                      - オラクルが得意なSIベンダー→クラウド環境に移行=受注単価が2桁下がった
+
+                    * 労働集約的なシステム
+
+                      - 運用担当者が20人→0人に
+
+                    * オンプレミス、パッケージ
+
+                      - MS Offiece→Office365
+                      - ERPパッケージ→Salesforce
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## クラウドが創造した事例
+
+                    * サービスモデル
+
+                      * e.g. AppStore、マーケットプレイス
+
+                    * ビッグデータ処理
+
+                      * 資本がなければ実現不可能→個人でも調達可能
+                      * e.g. DWH→AWS RedShift、Kinesis
+
+                    * モバイルを含むマルチメディア展開
+                    * 活発なコミュニティと個人での成長
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                   ## 破壊と創造の事例紹介.1
+                   ### サーバーワークス 大石良
+
+                   * 今までのSIは時間がかかりすぎた→時間の持つ価値を軽視しつづけてきた
+                   * クラウドの利用によって今までの開発の常識が変わってきている
+
+                     - 小さいチームで
+                     - 繰り返し素早くデリバリー
+                     - AWSの機能を組み合わせてつくる→AWSを使いこなす力が重要
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## 破壊と創造の事例紹介.2
+                    ### クラウドワークス 吉田 浩一郎
+
+                    * 既存のシステム調達、人材調達が変わる
+                    * 製造原価＝製品の価格ではなくなる
+                    * 人間でしかできないことに注力するようになる
+                </script>
+            </section>
+        </section>
+
+        <section data-background="#BAC494">
+            <section data-markdown="">
+                <script type="text/template">
+                    # 社内システムの構造と設計、実装のはなし
+                    by 田籠 聡(LINE)
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ### 社内システムの特徴
+
+                       * Closed Web
+                       * 機能 > 性能
+                       * Long Life Cycle
+                       * Target User : 自分
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ### 社内システムの問題
+
+                       * 情報と権限の分断
+                       * 情報と機能の冗長化
+                       * UXの欠如
+                       * 自動化の障壁
+                       * 全部入りでアップデート不可能
+                       * 社内システム連携
+
+                         * DBを直接
+                         * SOAP(笑)
+                         * RPC Protocols
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ### 社内システム連携のポイント
+
+                       * Simpleに!
+
+                         * 権限:分断を最小限に
+                         * 機能:情報には複数の参照方法を
+                         * モジュール化:単機能システムを連携させる。アップデートが容易な状態を保つ。
+
+                       * 社内システムほど他システムとの連携を考えよう→機能をAPIとして公開しよう
+
+                       * APIの互換性を保つ
+
+                         * プロトコル
+                         * データ構造
+                         * 意味の一貫性→通信結果がOKからSuccessになるとかNG
+                         * クライアント要件の普遍性/不変性→クライアントを含めて社内システム
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ### Protocols of WEB API
+
+                       * IDL
+                       * FTP,RSH,SSH
+                       * HTTP
+
+                          * SOAP,XML-RPC etc...
+                          * JSON←オススメ!!
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ### JSONのオススメポイント
+
+                       * 長期運用することを念頭に...
+
+                         * 人間が読める、見て分かる
+                         * 直接書ける
+                         * きちんとアップデートできること
+                         * テストが容易である
+
+
+                       * 百聞は一見に如かず
+
+                         *  1 times curl >>> 100pages docs
+                         *  easy to try >>> performance
+                         *  loosely coupled >>> strict protocol
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ### 社内システムの実装ポイント
+
+                      * 動くことが大事
+                      * 分かりやすいデータフォーマット
+                      * 必要なモノに絞り込んで作る
+                      * 優先度
+
+                         * 実装が楽なAPIをつかう
+                         * 機能を切り刻む、切り刻まれた細かい機能追加タスクにする(全体としては必要かもしれないが)
+                         * 修正範囲を最小化する
+                         * 今いらないなら後でやる→いつでもできるでしょ？
+                         * 要件定義は難しい。後回しにする
+
+                    ### アーキテクチャの割り切りが開発と運用のスピードを上げる
+                </script>
+            </section>
+
+        </section>
+
+        <section data-background="#ABA2F7">
+            <section data-markdown="">
+                <script type="text/template">
+                    # 新卒エンジニア研修ですべきことできること
+                    by 関口 亮一(ディー・エヌ・エー)
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ### DeNAでの問題点と現状把握
+
+                       * 現状
+
+                         * 未経験>>>経験者
+                         * 70人に対して3人のエンジニア+外部講師
+
+                       * 問題
+
+                         * 教えることは無限にある
+                         * 絞ったとしても教えるのが難しい
+                         * やれる範囲で→全然やれない
+                         * 講師「トレンドの技術や知識がわからん」→現場感との乖離
+
+                       * 要求
+
+                         * サーバサイドだけでは足らない
+                         * 現場にでてから成長できる人が欲しい
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ### 問題を整理した
+
+                       * 技術レベルが求める水準に達していない
+
+                         * いいから引き上げる
+                         * 工夫に最大注力して棚上げしていたことをちゃんと教える。(オブジェクト指向,設計,高トラ対策,git...)
+                         * 諦めの連鎖を断ち切る
+
+                       * 研修でやってきた知識が現場で生きない
+
+                         * 局所的な知識や技術は変化に弱い
+                         * 知識技術は幅広で奥深い上に流動的
+
+                            * 現場固有な知識は極力排除
+                            * 理想を先に刷り込む
+
+                       * 現場で教える時間と暇がない
+
+                         * 勝手に学ぶ週間をつける
+                         * 目先の技術より観察眼、応用力を養う
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                   ## 研修内容
+
+                     * 座学(2週間くらい)
+                     * 企画
+                     * 設計(DBや画面)
+                     * 実装
+
+                     卒業は早抜け。はや抜けは2ヶ月、最長9月末
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                  ## レビュー 1回1時間 各フェーズstep5〜7回
+
+                     * レビューで大事なこと
+
+                       - 正しく論破する,信頼関係重点
+                       - 指摘の仕方や促し方を一人一人変える
+                       - 対面
+                       - レビューの出来事や内容を記録(最重点)
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                   ## 進捗、成長具合
+
+                     * フェーズが進むと進み具合が差が出る
+                     * 成長を促すために手をうつ
+                     * より合う教え方を調整する
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## 計測する
+
+                      * 進捗、レビュー、日報、会話の内容
+                      * すべてを記録する
+                      * Perl筆記テスト
+                      * 1Hのデイリーミーティングで活用する
+                      * アクションの決定→記録→観察
+
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## フォローアップ
+
+                      * 毎日,隔日30分の講師と1on1
+                      * 成長促進のための徹底した振り返り(KPT)
+                      * 日々のKを蓄積する(電車座れた、ご飯美味しかったでも可)
+
+                      * 良い所を伸ばして弱点を改善
+                      * 一人一人丁寧に
+                      * 一筋縄ではいかないでひたすら工夫
+                      * 最終的に自身をつけさせる
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## フォローアップの効果
+
+                       - フォローアップ前
+
+                         * 何がわからないかわからない
+                         * 何がわかったかわからない
+                         * なんのタメにやっているか分からない
+                         * 何が敵か？
+
+                       - フォローアップ後
+
+                         * 本質を見抜く力
+                         * 自分のたどってきた道のりを把握している
+                         * 間違った道に入ったことを検知できる
+                         * ゴールまでの距離がわかる
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## フォローアップのススメ
+
+                       * フォローアップを受けた人は急激に成長する
+                       * 時間が許すなら全員やったほうがよかった
+                       * ただし自分の弱い面と向き合うのは辛い
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## まとめ
+
+                       - 組織のニーズに応えることも大事だが、ニーズは変化する
+                       - 基本的な技術力、マインド向上は役立っている
+                       - 新しい技術にも本質的な知識・問題定義力が備わって入れば吸収が早い
+
+                       - 人にフォーカスすることで人材の柔軟性を高め、組織にフィットしやすくなった
+                       - 組織の型にはめて人材を育成するより変化に強い
+                       - 変化の激しい会社や組織に特に有効な研修
+                </script>
+            </section>
+        </section>
+
+        <section data-background="#809142">
+            <section data-markdown="">
+                <script type="text/template">
+                    # Stormで実現するビッグデータのリアルタイム処理プラットフォーム
+                    by 鈴木 貴典(Acroquest Technology)
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## なぜリアルタイムが必要なのか？
+
+                       * 不正利用・不正アクセス検知
+                       * センサーデータの利用・分析
+                       * ユーザーのリコメンド
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## 代表的なプロダクトと特性
+
+                    | 処理方式(レイテンシ)    | 代表的なOSSプロダクト |
+                    | :--------------- | :--------------------------- |
+                    | Batch(高)   | Hadoop                      |
+                    | Query(中)   | Drill、Impala、Stinger       |
+                    | Stream(低)  | Storm、Spark stream(Apache) |
+
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## ストリームデータ処理とは
+
+                      * 連続的に発生し続けるデータを処理し続ける
+                      * 適用モデル
+
+                        - 大量データの事前処理(フィルタリング、正確なデータ)
+                        - リアルタイムデータの集計
+                        - センサーデータの集計/分析
+                        - セキュリティ
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## Stormとは
+
+                      1. Stormとは
+
+                        * 分散し、耐障害性の高いリアルタイム処理基盤
+                        * Twitterの発表したOSS
+                        * 導入事例
+
+                          - GROUPON、Alibaba.com、Twitter
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## 特徴
+
+                      1. Integrates
+                      1. Simple API
+                      1. Scalable
+                      1. Fault tolerant
+                      1. Guarantees data processing(欠損のないデータ処理)
+                      1. Use with any language
+                      1. Easy to deploy and operate
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## 機能
+
+                      1. Stream groupings
+                      1. Distributed RPC
+                      1. Transactional
+                      1. Trident(複数のTupleに対して処理を行なう。集計・マージ・ジョイン)
+                      1. Metrics
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ### ストリームデータ処理のアーキテクチャ
+
+                    * アーキテクチャ選定のポイント
+
+                       * データを分散して受信・収集
+                       * 処理能力
+                       * 中間データの扱い etc...
+
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## ストリームデータ処理のアーキテクチャ
+
+                    * 基本的なアーキテクチャ
+
+                       1. データ発生元(センサー、モバイル端末 etc...)
+                       1. データ受信部(Fluentd etc...)
+                       1. メッセージキュー(MQ etc...)
+                       1. データ処理部(Storm、Kafka、etc... 中間データもキャッシュとして活用)
+                       1. データ活用部
+
+                    * 次にくるであろうアーキテクチャ設計
+
+                       * バッチとリアルタイムのハイブリッド(ラムダアーキテクチャ)
+
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## ストリームデータ処理のアーキテクチャ
+
+                    * 事例
+
+                      * Loggly
+                      * センサーの監視
+                      * Storm on YARN
+                      * Amazon Kinesis with Storm(Kinesis→データ集計がメイン)
+                      * AcroMUSASHI Stream:Stormをベースとしたストリームデータの分散処理プラットフォーム
+                      * Stream-ML:Storm上で機械学習。クラスタリング、異常値検知、変化点検出。
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## まとめ
+
+                      * ビッグデータ処理はリアルタイム性を求められるようになってきた
+                      * Stormはストリームデータ処理を簡単に実現するためのフレームワーク
+                      * Stormを利用したストリームデータ処理は応用範囲が広い
+                </script>
+            </section>
+        </section>
+
+        <section data-background="#F796A4">
+            <section data-markdown="">
+                <script type="text/template">
+                    # 何故クックパッドのサービス開発は日々進化しているのか
+                    by 庄司 嘉織(クックパッド)
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## クックパッドの使用している言語、フレームワーク
+
+                      * Ruby 2.0
+                      * Rails 3.2
+
+                    現在はRails4系へ移行作業中
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## 規模
+
+                    * model 1,136
+                    * controller 358
+                    * view 3,530
+                    * routes 2,718 行
+                    * assets 4,135
+
+                    * spec 16,108 examples
+
+                    * デプロイ 10/day
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## 開発体制
+
+                    * アプリ開発 40人+
+                    * インフラ部 5人
+                    * 技術部 10人+
+
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## 技術部とは？
+
+                    * サービス開発チームの技術サポート
+                    * 疎かになりがちなデプロイ基盤やテスト基盤を支援する
+
+                      e.g. CIが10分以内
+
+                    * 共通基盤の整備
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## ソースのマージは自分でする
+
+                       * コードレビューが通っていること
+                       * htmlの文言修正などはレビューなしでマージ
+                       * レビュー依頼はチームだけでなく関係者、識者に送る
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## DB変更もPull Requestで行なう
+
+                       * 開発環境で試行錯誤してできたテーブルからSQL自動生成
+                       * スキーマ変更もPull Request
+                       * その他のインフラ依頼もissue
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## 設計もissueで
+
+                       * 設計中の議論が一目瞭然
+                       * Pull Req ←→ issue
+                       * githubのタスク記法で残り作業が分かる
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## デザイナーともgithubでやりとりする
+
+                       * 作業中のbrunchにPull Requestがくる
+                       * html, css, imgまで
+                       * こんなイメージ下さい→Pull Requestがとどく
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## デプロイ
+
+                       * CI通ったリビジョンのみデプロイできる
+                       * 全開発者が手元でデプロイできる
+                       * 時間帯は9:30-17:00 休前日は基本無し
+                       * ロールバック、デプロイロックも手元から
+
+                         - →インフラからロックのお願いがくる
+                         - →インフラは権威的にならない!!
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## クックパッドの文化
+
+                      * DevOpsという言葉はほぼ意識していなかった→もともとやっていたことに名前がついた感覚
+                      * 一人一人にユーザがいる
+                      * 幸せにするために常に正しいと思うことを積極的にやる
+                      * 使いこなせるかな〜は逆に失礼
+                      * クックパッドは社外に貢献することが求められ、推奨されている
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## そのような文化を作るには
+
+                       * 情報共有
+                       * なるべくルールを作らない
+                       * 正しいと思ったら行動する。→ボールに当たらなくともとりあえずバットを振る
+                </script>
+            </section>
+        </section>
+
+        <section data-background="#C6C6C6">
+            <section data-markdown="">
+                <script type="text/template">
+                    # Team GeekによるFearless Change
+                    by 角 征典(ワイクル)
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## アジャイル、スクラムで組織変革を目指す
+
+                       * でもプログラマはやらなくてもよいよ
+                       * でも誰かがやる必要があったり
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## しかしながら
+
+                       * 頑張っても報われない
+                       * 論理的に説明しても理解してもらえない
+
+                    機械論的自然観に嵌っていないか？
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## 有機体論的自然観に従ってその場その場で問題を解決する
+
+                      * 問題を解決する端から問題がでる
+
+                        * 出来事は連続している
+                        * 変化は少しずつ起こる
+                        * 人間の反応は予測できない
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## 書籍Fearless Changeの例
+
+                    * e.g. 良いアイデアなのに無視される
+
+                      * アイデアAを普通に相談してみた→ダメ
+                      * アイデアAをお菓子を持っていって相談してみた→OK
+
+                    - →アイデアの良し悪しではなく人間同士の問題
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## 似た問題は様々な現場で起きている
+
+                       * 良いアイデアなのに無視される
+                       * 面倒くさい人が多すぎる
+                       * 何をしてもダメな人がいる
+                       * チームとしての結束が弱い
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## 問題をパターンにし、パターンを繋げてパターンランゲージにする
+
+                       * 問題解決→別の問題発生は当たり前
+                       * 問題に対応するパターン適用→解決し問題発生したら別パターンで
+                       * 点と点をつなぐ(e.g. ジョブズの例)
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## パターンとフレームワーク
+
+                      * XPとスクラム
+                      * プラクティスと原則
+                      * Team GeekとFearless Change
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## プログラマとして重要な原則
+
+                       * 謙虚
+                       * 尊敬
+                       * 信頼
+
+                    ### HRTが大事
+                </script>
+            </section>
+
+        </section>
+
+        <section data-background="#D4F695">
+            <section data-markdown="">
+                <script type="text/template">
+                    # 伝統的な品質管理モデルをアジャイルに適合させる処方箋
+                    by
+                </script>
+            </section>
+        </section>
+
+        <section data-background="#95A4F7">
+            <section data-markdown="">
+                <script type="text/template">
+                    # モバイル版グーグルマップのUXはいかにして作られたのか？
+                    by
+                </script>
+            </section>
+        </section>
+
+        <section data-background="">
+            <section data-markdown="">
+                <script type="text/template">
+                    # エンジニアだからできる 自由な生き方
+                    by
+                </script>
+            </section>
+        </section>
+
+        <section data-background="#F6B795">
+            <section data-markdown="">
+                <script type="text/template">
+                    # Play2/Scalaでドメイン駆動設計を利用した大規模Webアプリケーションのスクラム開発の勘所
+                    by
+                </script>
+            </section>
+        </section>
+
+        <section data-background="#94A8C4">
+            <section data-markdown="">
+                <script type="text/template">
+                    # まとめ
+
+                </script>
+            </section>
+        </section>
+
+        <section>
+            <section data-markdown="">
+                <script type="text/template">
+                    # 関連リンク
+
+                    * [Develper Summit 2014](https://event.shoeisha.jp/devsumi/20140213/)
+                    * [Developer Summit 2014資料まとめ(CodeZine)](http://codezine.jp/article/detail/7640)
+                </script>
+            </section>
+        </section>
+
+        <section>
+            <section data-markdown="">
+                <script type="text/template">
+                    # END
+                </script>
+            </section>
+        </section>
+    </div>
+
+</div>
+
+<script src="lib/js/head.min.js"></script>
+<script src="js/reveal.min.js"></script>
+
+<script>
+
+    // Full list of configuration options available here:
+    // https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+
+        theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+        transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+        // Parallax scrolling
+        // parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+        // parallaxBackgroundSize: '2100px 900px',
+
+        // Optional libraries used to extend on reveal.js
+        dependencies: [
+            { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+            { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+            { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+            { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+            { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+            { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+        ]
+    });
+
+</script>
+
+</body>
+</html>
