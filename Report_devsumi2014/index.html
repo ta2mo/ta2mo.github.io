@@ -29,25 +29,12 @@
 
         <section data-markdown="">
             <script type="text/template">
-                ## 目次.1
+                ## 目次
 
                 1. [デブサミとは](#/2)
-
                 1. [聴講したセッションの内容まとめ](#/3)
-                  1. [クラウドがもたらした多様な破壊と創造](#/3)
-                  1. [社内システムの構造と設計、実装のはなし](#/4)
-                  1. [新卒エンジニア研修ですべきことできること](#/5)
-                  1. [Stormで実現するビッグデータのリアルタイム処理プラットフォーム](#/6)
-                  1. [何故クックパッドのサービス開発は日々進化しているのか](#/7)
-                  1. [Team GeekによるFearless Change](#/8)
-                  1. [伝統的な品質管理モデルをアジャイルに適合させる処方箋](#/9)
-                  1. [モバイル版グーグルマップのUXはいかにして作られたのか？](#/10)
-                  1. [エンジニアだからできる 自由な生き方](#/11)
-                  1. [Play2/Scalaでドメイン駆動設計を利用した大規模Webアプリケーションのスクラム開発の勘所](#/12)
-
-
-                1. まとめ
-                1. 関連リンク
+                1. [まとめ](#/13)
+                1. [関連リンク](#/14)
 
             </script>
         </section>
@@ -55,13 +42,13 @@
         <section data-background="#96A5F8">
             <section data-markdown="">
                 <script type="text/template">
-                    # 1. デブサミとは
+                    # デブサミとは
                 </script>
             </section>
 
             <section data-markdown="">
                 <script type="text/template">
-                    # 1.デブサミとは
+                    # デブサミとは
 
                     * Developers Summitの略
                     * IT開発者の経験やノウハウをプレゼンやスピーチで発表する
@@ -808,7 +795,108 @@
             <section data-markdown="">
                 <script type="text/template">
                     # 伝統的な品質管理モデルをアジャイルに適合させる処方箋
-                    by
+                    by 藤井 智弘 (日本ヒューレット・パッカード)
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ### 日本のアジャイル導入の状態
+
+                    * 全面的に採用
+                    * 無関心
+                    * サンドボックスでお試し中
+                    * なんちゃって採用(ハイブリッド,日本式)
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## エンタープライズの現状
+
+                      - サイロ型の組織
+
+                        * 多様な利害関係者
+                        * 異なる利害
+                        * 予算の奪い合い
+
+                      - 高い依存性
+
+                        * 保守主体
+                        * 複雑な構造
+                        * ビッグバン統合
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    - 手作業が主流
+
+                      * 非効率
+                      * 低い再現性
+                      * 社内失業への恐怖
+
+                    - 共有されない情報
+
+                      * 矛盾、もれ
+                      * 調整に時間必要
+                      * 組織内に散在
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## エンタープライズのなかでアジャイルをやるには
+
+                    * スプリントという概念がない人達とスプリントをやること
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## アジャイルを実行するための前提
+
+                    - 2つの幻想を捨てる
+
+                      * 全機能保証
+                      * 全件テスト
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## DADはゴール指向
+
+                    * プロジェクトのマイルストーンにおけるゴールの体系化
+                    * 意思決定のフレームワーク
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## 戦略１:トレーサビリティを見直す
+
+                    * 進捗管理のための従来型のトレーサビリティはアジャイルは過剰かつ無意味
+                    * アーキがグダグダであればトレーサビリティは無駄
+                    * 構造を規定すべき領域とその場で知る領域
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## 戦略2:ビジネスインパクト分析
+
+                    * 日付をテストしてみる→正しいテスト技法を身につけるのは当然
+                    * ビジネスに与えるインパクトが大きいストーリからテストする優先度付
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## 戦略3:SUCCESSの定義
+
+                    * KPIは避けて通れない
+                    * ビジネス上の価値を測定する
                 </script>
             </section>
         </section>
@@ -817,16 +905,132 @@
             <section data-markdown="">
                 <script type="text/template">
                     # モバイル版グーグルマップのUXはいかにして作られたのか？
-                    by
+                    by 石塚 尚之 (グーグル)
                 </script>
             </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## グーグルのデザインの特徴
+
+                      * グーグルの検索結果は原稿用紙5枚の情報を表示し、10秒以内に情報をみつけている
+                      * ユーザーが求める情報をデザイナーは考え情報を返す e.g. オバマ大統領、白鵬の対戦成績
+                      * ユーザが何を求めているかを推測し、賢く答えを返す。
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## グーグルの開発チームについて
+
+                      * PM(プロダクトマネジメント)、Eng(エンジニアリング)、UX(ユーザーエクスペリエンス)
+                      * 企画段階からUXチームが関与する
+                      * 世界中のオフィスに分散している
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## UXチームメンバーの構成
+
+                      * UXデザイナー
+                      * ユーザーリサーチャー
+                      * 調査参加者、リクルーター
+                      * ウェブデベロッパー
+                      * コピーライター
+                      * ビジュアルデザイナー
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## グーグルマップのUXがいかに作られたか？
+
+                      * メニューバーが画面を覆った→使いにくい→機能を廃止した
+                      * 地図アプリのコンセプトを明確にした
+                      * 少人数でグローバルなメンバーでビデオチャットでディスカッションを行った
+                      * メンバー間で全会一致
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## チームメイトを信頼するための仕掛け
+
+                      1. 直接合って、相手のことを知る
+                      1. ヴァーチャルコーヒー
+                      1. メールを書く
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## 信頼することで...
+
+                    - ディスカッションが頻繁に行われた
+                    - フラットな関係で意見がいえる
+                    - 開発前に様々なシミュレーションができた
+                    - 短期間の開発につながった
+                </script>
+            </section>
+
         </section>
 
         <section data-background="">
             <section data-markdown="">
                 <script type="text/template">
                     # エンジニアだからできる 自由な生き方
-                    by
+                    by 増井 雄一郎(ミイル/トレタ)
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## 自由な生き方
+
+                       * お金
+                       * 時間
+                       * 場所
+                       * ルール
+
+                       - →年々自由度が増えている
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## 自由とは
+
+                      * 自己決定権
+                      * フリーランス、ノマドも自由ではない→働く時間に対しては自由だが仕事内容に関して自由がない
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## なぜ自由になりたいのか
+
+                      * 好きなモノを作りたいから
+                      * 大きなものを作るには多くのthe dotsが必要
+                      * 伽藍とバザール
+                      * 自分の自由を価値に繋げて社会に認めて貰う
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## 35歳定年説を超えるためには
+
+                      * 環境が大事
+                      * リスクをコントロールするため積極的にチャレンジする
+                      * 10年後に自分がどうなりたいのか
+                      * 自分の世界を広げよう
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## 自由は闘って勝ち取る
                 </script>
             </section>
         </section>
@@ -835,7 +1039,222 @@
             <section data-markdown="">
                 <script type="text/template">
                     # Play2/Scalaでドメイン駆動設計を利用した大規模Webアプリケーションのスクラム開発の勘所
-                    by
+                    by 吉村 総一郎(ドワンゴ)
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## 前提
+
+                    ### コードの技術的負債
+
+                      * PHPのコード行数300万行中コピペ1万行
+                      * PMD が4500箇所
+                      * 循環的複雑度600度超え
+                      * IDEサポートできない文字列のリフレクションが多い、grep不能
+
+                      - 企画の要件と締切優先→内部品質・プロセス品質をおろそかにする開発体制
+                      - 多くの人員が追加、根本修正を恐れるパッチ修正
+                      - コピペにより暗黙的影響範囲が。。。
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## 改善案
+
+                      * タスクの見える化
+                      * いらない機能を削って保守コストを下げる
+                      * カウボーイ個人開発からアジャイル開発体制へ移行、チーム開発へ
+                      * 長期案件、突発対応、改善活動の3チーム体制へ
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## 結果
+
+                      * 大規模障害と休日出社が減った
+                      * コードの行数の増加が止まった
+                      * メンバーが休んでもチームが回るようになった
+                      * 離職が減った
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## プロジェクト要件
+
+                      * スケーラビリティ
+                      * 安定性・フォールトトレラント性
+                      * 保守性と拡張性
+                      * パフォーマンス
+
+                      1. スモールスタート プロトタイプ開発→リリースまで6ヶ月以内に
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## Play2/Scalaでの大規模開発
+
+                    #### なぜScala?
+
+                      * Java、Scala、PHP、Rubyからの選択
+                      * 保守性の観点から静的型付け言語を使いたかった
+                      * JavaとScalaを選択するにあたってコード量が少ないので保守性がよくなると思った
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    - ネックになる知識.1
+
+                      - アルゴリズムとデータ構造
+
+                        * プログラミングコンテストチャレンジブックを作って勉強会をした
+
+                      - 純粋関数型プログラミング
+
+                        * 無理に適用しない
+                        * ベターJavaとして扱ってみる
+
+                      - valとvar
+
+                        * valを徹底
+                        * 可変コレクションも基本的に使わない
+                        * サーバーでメモリリークが発生せず素晴らしい
+
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    - ネックになる知識.2
+
+                      - implicit
+
+                        * ライブラリ層を覗いては極力利用しない
+                        * implicit converterを使うと負債になりやすい
+
+                      - 並行プログラミングの知識
+
+                        * Actorのトラブル解決にどうしても必要になる
+                        * Java並行処理プログラミングの勉強会して対応
+
+                      - JVMとライブラリの活用
+
+                        * エキスパートが必要
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## インフラ設計
+
+                    - クラウドではなくオンプレミス
+
+                      * IOパフォーマンス
+                      * 費用
+                      * 社内方針として
+
+                    - 2つのキャッシュ --中央RedisとローカルRedis
+                    - 冗長化方式
+
+                      * MySQLはMHA
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## DB設計方針
+
+                    - DBの水平分割と垂直分割
+
+                      * 開発初期から水平分割を戦略として組み込んだ
+                      * InstagramのID設計、PinterestのID設計、Twitterのsnowflakeなどを参考に
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## ドメイン駆動設計
+
+                      1. ユビキタス言語
+                      1. モデルを使って議論するということ
+                      1. レイヤードアーキテクチャ
+                      1. 正しいモジュール化を行い、変更時に読まなきゃいけないコードを減らす　→コアの蒸留、汎用サブドメインの分離
+                      1. エンティティと値オブジェクトの使い分け
+
+                    ### Play2/ScalaはDDDを実践するにはとても良い!!
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## DDDを実践するにあたっての問題
+
+                    ### DDDは前提知識が多い!!
+
+                      * 名著５冊読んでからやっとDDD本に到達するレベル
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## DDDの価値とは？
+
+                      * 神クラスの議論は難しい
+                      * ユビキタス言語が導入されると実装が近くなり会話がしやすくなる
+                      * ただし、ドメイン層だけ
+                      * リファクタ性能があがる
+                      * 断続的なコードレビュー、設計レビューが必要
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## コード規約
+
+                      * Scala Guide/ Effective Scala
+
+                    ## 開発環境
+
+                       * Intellij IDEA Ultimate
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## Jenkins CI/CD
+
+                      * 5万行、重複コード0、scalastyle警告0!!
+                      * リーダーやCIのメンテナーの啓蒙活動が重要
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## Play/Scalaデメリット
+
+                      * sbtが遅すぎる→proxyを作る
+                      * scalaテンプレートがコンパイルが遅い、デザイナーにやさしくない
+                      * objectとtraitと関数引数はテストで困るポイント
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## スクラムを採用したメリット
+
+                      * スクラムはリーダを育てるのに適している
+                      * スクラムマスターをちょっとやってみるとかできる
+
+                    ## スクラムのデメリット
+
+                      * コミュニケーションコストが高いので負担にならない仕組みが必要
+                      * 要件定義能力が身につきにくい、ストーリー漏れがある
                 </script>
             </section>
         </section>
@@ -843,8 +1262,18 @@
         <section data-background="#94A8C4">
             <section data-markdown="">
                 <script type="text/template">
-                    # まとめ
+                    # まとめ、感想
+                </script>
+            </section>
 
+            <section data-markdown="">
+                <script type="text/template">
+                    ## まとめ・感想
+                      * アジャイル・スクラムは事例がより増えた。試行錯誤しているというよりも成熟期へ
+                      * クラウドはAWSが一強。どう使うのかがポイント。インフラ担当もプログラマブルになっていく
+                      * ビッグデータはバッチ→リアルタイムへ。適用範囲も棲み分けが進む
+                      * 変化に対応するためのスピード感と柔軟性大事→アジャイル、スクラムが重用される理由
+                      * リーンは当然→MVP、素早いフィードバック、顧客主義 etc...
                 </script>
             </section>
         </section>
