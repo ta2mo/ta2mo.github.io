@@ -1,4 +1,4 @@
 User-agent: *
 Disallow: 
 
-Sitemap: http://naokun776.github.io/sitemap.xml 
+Sitemap: http://yoursite.com/sitemap.xml 

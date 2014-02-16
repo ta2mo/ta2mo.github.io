@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-
   <title><![CDATA[776]]></title>
-  <link href="http://naokun776.github.io/atom.xml" rel="self"/>
-  <link href="http://naokun776.github.io/"/>
-  <updated>2014-02-17T00:32:29+09:00</updated>
-  <id>http://naokun776.github.io/</id>
+  <link href="http://yoursite.com/atom.xml" rel="self"/>
+  <link href="http://yoursite.com/"/>
+  <updated>2014-02-17T02:08:02+09:00</updated>
+  <id>http://yoursite.com/</id>
   <author>
-    <name><![CDATA[Naoto Tanimoto]]></name>
+    <name><![CDATA[naokun776]]></name>
     
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
@@ -15,10 +14,13 @@
   
   <entry>
     <title type="html"><![CDATA[ScalaとPlayFrameworkの設定メモ]]></title>
-    <link href="http://naokun776.github.io/blog/2014/02/17/scala-play-setup-memo/"/>
+    <link href="http://yoursite.com/blog/2014/02/17/scala-play-setup-memo/"/>
     <updated>2014-02-17T00:30:00+09:00</updated>
-    <id>http://naokun776.github.io/blog/2014/02/17/scala-play-setup-memo</id>
+    <id>http://yoursite.com/blog/2014/02/17/scala-play-setup-memo</id>
     <content type="html"><![CDATA[<h2>ScalaとPlayFrameworkをMacで使用できるようにするためのメモ。</h2>
+
+<!-- more -->
+
 
 <ol>
 <li><p> JDKをダウンロード&amp;インストールする。</p>
