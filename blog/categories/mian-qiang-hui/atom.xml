@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title><![CDATA[776]]></title>
-  <link href="http://yoursite.com/atom.xml" rel="self"/>
+
+  <title><![CDATA[Category: 勉強会 | 776]]></title>
+  <link href="http://yoursite.com/blog/categories/mian-qiang-hui/atom.xml" rel="self"/>
   <link href="http://yoursite.com/"/>
   <updated>2014-02-20T02:25:09+09:00</updated>
   <id>http://yoursite.com/</id>
@@ -155,43 +156,6 @@
 <li>IDEAは空気読む力がハンパない。正規表現チェックとか文字列SQLのテーブル名補完はカユいところに届いてありがたい。</li>
 <li>jfluteさんの「IDEをちゃんと使いこなせてますか？」はココロに刺さった。</li>
 </ul>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[ScalaとPlayFrameworkの設定メモ]]></title>
-    <link href="http://yoursite.com/blog/2014/02/17/scala-play-setup-memo/"/>
-    <updated>2014-02-17T00:30:00+09:00</updated>
-    <id>http://yoursite.com/blog/2014/02/17/scala-play-setup-memo</id>
-    <content type="html"><![CDATA[<h2>ScalaとPlayFrameworkをMacで使用できるようにするためのメモ。</h2>
-
-<!-- more -->
-
-
-<ol>
-<li><p> JDKをダウンロード&amp;インストールする。</p>
-
-<ul>
-<li><a href="http://www.oracle.com/">Oracle</a>のDownloads > Java for Developers</li>
-</ul>
-</li>
-<li><p> Scalaをダウンロードして解凍。</p>
-
-<ul>
-<li>Scala-><a href="http://www.scala-lang.org/">http://www.scala-lang.org/</a></li>
-</ul>
-</li>
-<li><p> 解凍してできたscala-X.XX.X/binにPATHを通す。</p></li>
-<li><p> PlayFrameworkをダウンロードして解凍。</p>
-
-<ul>
-<li><a href="http://www.playframework-ja.org/">PlayFramewokの日本語サイト</a>のTOPにDownloadがある。</li>
-</ul>
-</li>
-<li><p> 解凍してできたplay-X.X.XディレクトリにPATHを通す。</p></li>
-<li><p> Playのコマンドを実行してみて確認する。バージョンが表示されればOK。</p></li>
-</ol>
 
 ]]></content>
   </entry>
