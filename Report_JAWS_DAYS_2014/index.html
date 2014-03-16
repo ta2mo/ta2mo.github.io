@@ -1,0 +1,1209 @@
+<!doctype html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <title>デブサミ2014 メモ</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="css/reveal.min.css">
+    <link rel="stylesheet" href="css/theme/beige.css" id="theme">
+
+    <!-- For syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <!-- If the query includes 'print-pdf', use the PDF print sheet -->
+    <script>
+        document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+    </script>
+
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+<div class="reveal">
+    <div class="slides">
+        <section data-background="img/amazon-aws.png">
+            <h1>JAWS DAYS 2014メモ</h1><br>
+        </section>
+
+        <section data-markdown="" data-background="#f8981d">
+            <script type="text/template">
+                ## 目次
+
+                1. [JAWS DAYSとは](#/2)
+                1. [聴講したセッションの内容まとめ](#/3)
+                1. [まとめ・感想](#/13)
+                1. [関連リンク](#/14)
+
+            </script>
+        </section>
+
+        <section data-background="#f8981d">
+            <section data-markdown="">
+                <script type="text/template">
+                    # JAWS DAYSとは
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    # JAWS DAYSとは
+
+                    * AWS User Group - Japan主催のAWSをテーマとするカンファレンス
+                    * AWSの利用実績や技術、ノウハウの交流を目指す
+                    * AWSには様々なサービスがあるがサービス毎の解説セッションもある
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## ホットワード
+
+                    # Immutable Infrastructure
+                </script>
+            </section>
+        </section>
+
+        <section data-background="#f8981d">
+            <section data-markdown="">
+                <script type="text/template">
+                    # Immutable Infrastructure
+                    by 伊藤直也
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## Immutable Infrastructure
+
+                      - DisposableComponents
+                      - 不変な、状態を持たない、廃棄可能
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## サーバーの状態
+
+                      運用しながら利用している(rubyバージョン上げたり、チューニングしたり...)
+                      →果たしてデプロイは正常に完了できるのか？
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## サーバーの状態を管理する
+
+                      - 手順書
+                      - 自動化
+                      - サーバー管理データベース
+                      - Chef? Puppet?
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## そもそも
+                    ## 状態管理が面倒なら状態を管理しなければいいじゃない!!
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## Blue-Green Deployment
+
+                      - 代表例
+
+                        * Heroku
+
+                          * Herokuはgit pushする毎に新しいコンテナを作って古い環境を捨てる
+
+                        * TravisCI
+
+                          * テスト毎にコンテナを作って,実行する毎にコンテナを捨てる
+
+                        * Amazonの例
+
+                          - １時間に1000回デプロイ!!
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## Immutable Infrastructureを支える技術
+
+                    ### →コンテナ
+
+                      - 必要となるのはコンテナを運用するための技術
+
+                        * e.g. Docker、LXC
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## Immutable Infrastructureに至る経緯
+
+                      1. 仮想化
+                      1. クラウド
+                      1. Infrastructure as Code
+                      1. Immutable Infrastructure
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## Configuration Management Tool
+
+                      * サーバーの状態を管理するのは面倒
+                      * 手でやると暗黙知化
+                      * 手順書は古くなる
+                      * サーバーの状態をコードにする
+                      * AWSの普及が大きく影響を与えている
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## 状態がコードになればあるべき状態へ収束は自動化できる
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## インスタンスもプログラマブルに
+
+                      - e.g Vagrant
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## DevOps
+
+                      - 暗黙知をどちらかに貯めない
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## Imfrastructure as Code
+
+                      - インフラの状態をバージョン管理!!
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## コードになったInfrastructureをテストする
+
+                    ## = serverspec
+
+                      * インフラをCIする
+                      * 変更のたびに動作を保証する
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## Infrastructure as Codeの本質
+
+                      - サーバーインフラを動的にあつかる
+                      - アプリケーション開発のワークフローをインフラの世界に持ち込める
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## 冪等性
+
+                    - 冪等性が確保できないサーバーは扱いづらい
+                    - まっさらなサーバでも中途半端な状態のサーバーでもChefを適用したら同じになるようにする
+
+                      - 面倒だから作り、使い、捨てる
+                      - サーバにstatelessの制約を加える
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## Imutable Infrastructureに必要なこと
+
+                      - Infrastructure as codeは前提条件
+                      - オンデマンドで即座に生成できる技術→VMよりもコンテナ
+
+                        - コンテナはプロセスをforkするので高速
+
+                          * Docker
+
+                            - Linuxコンテナを手軽かつプログラマブルに扱えるようになる
+                            - コンテナイメージをまず作成しておいてコンテナを瞬時に作り出す
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## Immutable Infrastructureとアプリケーションのポータビリティ
+
+                      - Disposableな環境を前提にするとアプリケーションの再現可能姓が要求される
+                      - 結果的にアプリケーションがポータブルになる
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## アプリケーションがポータブルになると
+
+                      - アプリケーションの交換がゼロコンフィグに近づくと→手順がこうで・・・からgit URLをpushでデプロイされる
+
+                        - e.g. Atlassian JIRA + Docker
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## コンテナベースのデプロイ
+
+                      - 従来のデプロイでありがちなこと
+                      - 上書きデプロイからコンテナベースのデプロイへ
+
+                        - Herokuのような
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## Imutable Infrastructureの課題
+
+                      - コンテナ/Dockerだけでは足りない
+                      - ステートフルなサーバをどうするか
+
+                        - e.g. ストレージ、キャッシュ
+                        - 現状はすべてステートレスにすべきという話ではない。
+                        - ステートフルなものを外に逃がす実装
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## まとめ
+
+                     - IIによって今まで固定的だと考えていたコンポーネントが動的・オンザフライになってくる
+                      - 昨今のサーバー/インフラパラダイムの集大成としてのImmutable Infrastructure
+
+                        * 色々な概念、実装がこの考え方に集約されてくる
+                </script>
+            </section>
+        </section>
+
+        <section data-background="#f8981d">
+            <section data-markdown="">
+                <script type="text/template">
+                    # 意外と知らないリザーブドインスタンス。すぐに効くコスト削減(高山博史 & 櫻井貴江子)
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## AWSでのコスト削減
+
+                      - よりクラウドネイティブな設計
+
+                        - EC2以外のAWSサービスの積極的に活用
+                        - スタンバイ機の見直し
+                        - 運用自動化
+
+                      - 割引オプションの活用
+
+                        - リザーブドインスタンス
+                        - スポットインスタンス
+
+                      - その他のリソースの無駄チェック
+
+                        - 待機系の見直し EBS、EIP
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## 利用が増えると単価が安くなるもの
+
+                      - データ転送量、S3のストレージ料金 etc...
+                      - 大量にリザーブドインスタンスを購入した場合
+                      - 価格改定
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## AWS利用料金の内訳の割合
+
+                      - オンデマンド
+                      - リザーブドインスタンス
+
+                        - 常時起動のDB、キャッシュ
+
+                    ![007](img/007.jpg)
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## オススメ利用方法=リザーブドインスタンスファースト
+
+                    * オンデマンドインスタンス(デフォルト)
+
+                      * 使いドコロ
+
+                        - １年間のうち25%未満しか使わない場合
+
+                    * リザーブドインスタンス
+
+                      - ひょっとしてスケールアップするなら軽度
+                      - ずっと起動するなら重度
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## リザーブドインスタンスポイント
+                      - m2インスタンスは割引が大きいので20%でも軽度を使うべき
+                      - １年か３年か？→１年を３回買ったほうがトントンかもしかしたら安い
+                      - 購入時に条件を指定して購入する
+                      - 常に起動しているDBやキャッシュサーバ
+                      - 導入を検討する際は利用率を計算する
+                      - インスタンスタイプの変更ができるようになった
+                        - 同じインスタンスファミリーで統合、分解が可能→ちょっと難しい
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## リザーブドインスタンスを売却するには
+
+                      - リザーブドインスタンスの売却を検討するとき
+
+                        * リザーブドインスタンスの変更で対応できない時
+                        * リージョン間で引っ越しした時
+                        * プロジェクトが縮小した、あるいは予定より早く終了した時
+                        * 当初の予定よりも使わなかった時
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                  ## 前提条件
+
+                    * アクティブなリザーブドインスタンス
+                    * アメリカの銀行口座が必要
+                    * 前払金のみ。時間利用料は無理。
+                    * 時間課金価格は購入時の料金が適用
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                  ## 購入する場合
+
+                    * Management Consoleから
+                    * アメリカの口座は不要
+                </script>
+            </section>
+        </section>
+
+        <section data-background="#f8981d">
+            <section data-markdown="">
+                <script type="text/template">
+                    # RDS
+                    by 板橋正之
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## RDSの特徴
+
+                       - フルマネージド型のDBサービス
+
+                        - 監視
+                        - バックアップ etc...
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## RDSに向かないパターン
+
+                      - OSレベルでチューニングしたい
+                      - 専任のDBAがいる
+                      - 3TB以上のデータの場合 etc...
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## RDS利用開始するまで
+
+                      1. AZを選択
+                      1. Multi AZとかIOPSストレージ使うとか設定
+                      1. DB Instanceを選択
+                      1. Config設定(Public公開するか否か etc...)
+                      1. Manage Optionの設定
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## RDSの資料
+
+                    - AWSマイスターシリーズという資料が参考になる
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## RDSの利点
+
+                      - 必要な時に必要な分だけ使える
+                      - リザーブドインスタンスが利用できるので安価に
+                      - ハードウェア、インストール、チューニングが不要
+                      - 月額従量制
+                </script>
+            </section>
+
+           <section data-markdown="">
+                <script type="text/template">
+                    ## RDSの運用時の利点・特徴
+
+                      - Management Consoleからスナップショットとれる
+                      - ログもManagement Consoleで取得
+                      - 管理ユーザは利用できない
+                      - セッションの切断等々は専用パッチがある
+                </script>
+            </section>
+
+           <section data-markdown="">
+                <script type="text/template">
+                    ## DB Instance Type毎の注意点
+
+                      - 共通
+
+                        - タイムゾーン
+
+                      - Oracle
+
+                        - 環境変数
+                        - 文字コード
+
+                      - MySQL
+
+                        - パラメータグループ
+                        - character--set=utf-8
+
+                      - PostgreSQL
+
+                        - 照合順序
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## RDSの注意点
+
+                      - ディスクサイズは縮小はできない
+                      - すべてがLicenced includeではない
+                      - メンテ時間にならないと設定が反映されない
+                </script>
+            </section>
+        </section>
+
+        <section data-background="#f8981d">
+            <section data-markdown="">
+                <script type="text/template">
+                    # AWSクラウドデザインパターン for Enterprise
+                    by 玉川憲 & 片山暁雄大
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## クラウドデザインパターンのシナリオ
+
+                      - オンプレミスとAWSをつなぐハイブリッド環境のネットワーク
+                      - ハイパフォーマンス & 冗長性
+                      - クレジットカード情報を扱う
+                      - ディザスタリカバリ
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## ハイブリッドパターン
+
+                      - DXを用いて接続する
+
+                    ![006](img/006.jpg)
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## ハイパフォーマンス & 冗長性
+
+                      - Self Healingパターン(Cloud DIパターンを併用)
+                      - Synchronized Diskパターン
+                      - Ondemand Diskパターン
+                      - High Availability NATパターン
+                      - High Availability Forward Proxyパターン
+                      - On-premise Load Blancingパターン
+                      - Floating VPN Gatewayパターン
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## クレジットカード業務システムにも対応するAWS
+
+                      - PCI DSS準拠しているAWSのサービスがある
+                      - サービス毎に対応しているか確認できるページがある
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## クレジットカード業務にも使用できるパターン
+
+                      - Chanined Defense-in-Depthパターン
+
+                        - レイヤ毎にIAMでアクセス設定
+
+                      - ELB-End to END Encryptionパターン
+
+                        - ELBでSSL証明書のEncryptを行なう
+
+                      - Encrypted Log AGggregationパターン
+                      - High Availability IAMパターン
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## 企業システムのDR
+
+                      - Hot Stanby DC
+
+                        - →アプリはデプロイ済み。DBは同期書き込み
+
+                      - Warm Stanby DC
+
+                        - →アプリはデプロイ済み。APサーバは停止。DBは非同期書き込み。
+
+                      - Cold Stanby DC
+
+                        - →DBデータはS3に格納。S3から復帰。
+
+                      - Virtual Cloud Storage
+
+                        - →バックアップをオンプレからAWSに。
+                </script>
+            </section>
+        </section>
+
+        <section data-background="#f8981d">
+            <section data-markdown="">
+                <script type="text/template">
+                    # 世界で展開する新しいネットワークサービス「Miiverse」のAWS活用事例
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## Miiverseの開発
+
+                      - 開発ははてなの京都オフィスでやっている
+                      - 両者とも開発に関わる(ディレクション、デベロッパーを会社でわけない。)
+                      - ウェブベースのSSL/HTTPでやりとりする
+
+                        - HTML5、CSS3、JS
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## インフラの選定・要件
+
+                      - 世界中からのアクセス
+
+                        - 大陸毎にDC構築？
+                        - AWS
+
+                      - 早いうちにPC/スマートデバイス、3DS、Wiiに対応
+
+                      - トラフィック増減に対応する
+                      - スケーラビリティの高いシステム
+
+                        - 巨大なストレージ、高速なレスポンス
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## 最終的なインフラ
+
+                      - AWSのみで構築することにした
+
+                        - hi1 or PIOPOSの利用を前提にした
+
+                      - 海外DCの契約はハードルが高かった
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## システム概要と構成
+
+                      - EC2インスタンス:1000台
+                      - マルチリージョンAZ
+                      - サブシステム間でREST APIで通信
+                      - 画像等の静的データ送信
+
+                        * S3 + CloudFront
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## 開発ツール
+
+                    ![002](img/002.jpg)
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## 活用のポイント
+
+                    ![003](img/003.jpg)
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## リージョン構成
+
+                      - ３リージョン構成
+                      - 直近のリージョンにアクセス
+                      - 同期的な処理はほぼリージョン内で完結
+
+                    ![リージョン構成](img/004.jpg)
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## 単一のシステムの構成
+
+                      - NginXでSSLをencryptしているがパフォーマンスの問題はない
+                      - MySQL 5.5を使用。MHA for MySQLでフェイルオーバしている
+                      - Cross region replication
+
+                        * 遅延などはあまり問題になっていない
+
+                    ![005](img/005.jpg)
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## システム構成 - サブシステム
+
+                      - 3つのサブシステム → REST APIで通信
+
+                        * タイムライン -> pull型
+                        * 共感
+                        * 通知
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## 構築・デプロイ・監視
+
+                      - 構築 Chef Server
+                      - サーバ監視 Mackerel
+
+                        * はてな製サーバ管理ツール
+                        * メトリクス収集、監視項目作成
+
+                      - 監視 Nagios
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## 日々のサーバ運用
+
+                      - 24365のサーバ監視と連携
+                      - AWS Supportの活用
+
+                        * AWSのステータスより先にNagiosからアラート上がる
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## トラブル
+
+                      - ユーザの急増に伴うトラフィックお変化
+                      - IO不足
+                      - 疎通障害の問題
+                      - インスタンス障害
+
+                        * インスタンス障害・メンテに遭遇することが多い
+                        * 自動化で対応
+                        * マスターDBでもMHAを活用して自動切り替えで対処
+
+                      - EBS障害への対応
+
+                        * I/Oが全くできなくなる
+                        * サービスアウトされるようにする
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## 北米ローンチ時のトラブルを時系列で並べた
+
+                    ![画像001](img/001.jpg)
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## AWSを活用してみて...
+                    - 利点
+
+                      - リソース不足に短期間で対応
+
+                        * リードタイムゼロで調達可能
+
+                      - ストレージ開発/運用付加の軽減
+
+                        * オンプレとくらべてストレージの調達コストが圧倒的に低い
+
+                    - デメリット
+
+                      - IO不足や演算の力不足への対処が必要だった
+                      - セキュアでスケーラブルなネットワークの構築
+                      - 有事のサポートは-> Enterpriseサポート
+                </script>
+            </section>
+        </section>
+
+        <section data-background="#f8981d">
+            <section data-markdown="">
+                <script type="text/template">
+                    # 「技術的負債」を問いなおす by 栗林 健太郎
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## なぜ技術的負債？
+
+                      - アジャイルの基礎となる技術的負債とImutableInfrastructureとは近い
+                      - Infrastructure as Code はいわば負債(になり得るもの)の見える化
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## 問題意識
+
+                      - 技術的負債に関しての言説は不十分な認識にもとづいている
+                      - 認識利得が毀損され、水掛け論になっている
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## まとめ
+
+                      - たとえ話にすぎない
+                      - コミュニケーションにおいて有用。
+                      - 自己やチームの成長をいつでもコードに返せることが本義
+                      - 未来の不確実性にどう対処すべきかは経済学・ファイナンスで蓄積がある。そこから知見を得られるのではないか
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## 歴史
+
+                      - 負債という比喩の導入
+                      - 負債それ自体が悪いわけではない
+                      - 返済されれば適切
+                      - 放置することが問題となる
+                      - 技術的負債を非技術者に向かって使用すると問題がでてきたので分類した
+
+                        - Ward Macconnel : Type分け
+                        - Fowler : 四象限
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## 理論
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## 1. 近年の技術的負債論
+
+                      - 負債の分類学は過去の出来事を整理するため
+                      - 意図に基づく分類は過去に起こった出来事についてのコミュニケーションは有用だが、将来には有効性が薄い
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## 2. 見えないものとしての負債
+
+                      - 可視化されたコードの品質よりも可視化されていないアーキテクチャ的な見えない負債が影響しているのではないか
+                      - 未来の開発に関する意思決定においてやり直しの観点でモデル化
+
+                        * アーキテクチャの再構築
+                        * リファクタリング
+
+                      - 目に見えるモノ(ユーザ価値、バグetc)と眼に見えないアーキテクチャを分けて考える
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## 3. 可能的代替システムの差異
+
+                      - 同等の別なシステムとの差異を比較する
+                      - そうしたシステムとの差異が将来の意思決定にどうのような影響を与えたかを計測する
+
+                        * 可能的代替システムとは? = よく整備されたRailsアプリ、PuppetやChefで構成管理されたサーバ群
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## 4. 意図を問わないモデルの含意
+
+                      - いかなる意図があろうとも未来の不確実性の前では負債は避けられない
+                      - あり得る可能性の中でマシなのを選ぶ必要がある
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## 比喩
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## 1. 技術的負債とは
+
+                      - 定量化が困難
+                      - 必ず返済しなければいけないわけでない
+                      - そもそも借りてる？
+                      - 時間の経過で負債化することがある
+                      - コミュニケーション上の喩え話がひとり歩きしてきた
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## 2. あえて比喩の概念を広げてみる
+
+                      - 問題があるがコミュニケーションの中では概念を広げてみる
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## 3. WEBサービスにおいて
+
+                      - 理想の成長率と現実の成長率のギャップ=割引率→開始当初からみれば負債
+                      - ギャップを埋めるためには？
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## 実践
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## 1. 典型的な誤解
+
+                      - 不確実な未来へ向けた開発を意図どおりにコントロールできると思っている
+                      - コストと資本の区別がなく、実践的含意が薄い
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## 2. ダメなコードは属人的？
+
+                      - 戦術的・戦略的にトレードオフなら意図的に書くことになっちゃう
+                      - 意識的に書くことはできない
+                      - クソコードは属人的ではなく組織的・社会的産物
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## 3. ソフトウェアは資産
+
+                      - 資産と負債を説明しないと誤解が生まれる
+                      - 成長率のギャップを埋めるために必要な資源の調達が必要
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## 4. 技術的資本
+
+                      - 目に見えにくい
+
+                        * よいアーキテクチャ
+                        * 透明な開発プロセス
+                        * メンバーのモチベーション
+                        * 優秀な人材の採用
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## 5. 資本調達をマネージメントする
+
+                      - 適切なタイミングで対応可能なアーキテクチャに切り替える
+                      - チームメンバのコミットメントを引き出す
+                </script>
+            </section>
+        </section>
+
+        <section data-background="#f8981d">
+            <section data-markdown="">
+                <script type="text/template">
+                    # 「クラウドソーシングLancers」を支えるRDS for MySQL
+                    by 金澤 裕毅
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## AWSへ移行した背景
+
+                      - 開発環境
+
+                        * リリース=FablicでAPサーバ全台に一括適用
+                        * バージョン管理=github
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## 移行の理由
+
+                      * TV紹介も狙い出す
+                      * 現行レンタルサーバかクラウドか？
+
+                        - スペックではさくらの方が良かったり
+
+                    - ファイルデータの移行が問題へ
+
+                      * S3にPHPの移行コードを書いて移行した
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## RDS→EC2→RDSに移行した
+
+                      - RDS困りポイント
+
+                        - UTCで変更できない
+                        - ログが見れない
+                        - MyIsamのスナップショットは未サポート
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                      ## RDSからEC2へ移行
+
+                        - IOボトルネックになり移行した
+
+                      ## EC2で困った点
+
+                        - EC2が勝手にリブート3,4ヶ月に1度くらい
+                        - DB Masterにリブートがかかり、MyIsamのFullTextIndexが壊れる→スレーブ停止
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                      ## RDSが改善してきた!
+
+                        - 価格がEC2と差がなくなってきた
+                        - MySQL5.6対応
+                        - Management Consoleが充実してきた
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                      ## RDSのメリット
+
+                        - マルチAZで配置できる
+                        - 障害児に自動フェイルオーバー＝停止時間は4〜7分
+                        - リードレプリカ(参照スレーブ)の作成が簡単
+                        - ポイントリカバリ=任意の時間にDBを戻すことが可能
+                        - ClowdWatchがEC2より豊富
+                        - スナップショット機能
+                        - Automated Snapshot等
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                      ## RDSのデメリット
+
+                        - EC2に比べて若干割高
+                        - マルチAZでスタンバイ機は使えない
+                        - SSHログインできない
+                        - Tritonn、Mroongaが使えない=RDSなら自前で全文検索は自前で構築する必要がある
+                        - インスタンスをSTOPできない=final snapshotをとって削除→復旧(10分かかる)
+                        - スケールアップ、スケールダウンは10分間ほどかかる
+                        - バイナルログの保持期間は7日間しかできない
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                      ## RDSの注意点
+
+                        - リードレプリカは5台まで
+                        - 日付型はデフォルトでUTC=コネクション時に日本時間で接続する
+                        - スナップショットの取得期間は最大35日間まで
+                        - パラメータ設定をした後は再起動したほうが良い。→不適切な設定の場合にはエラーが表示される
+                        - 設定値は`SHOW_VARIABLES`で確認した方が良い。
+                        - クライアントをMySQL5.6にする
+                        - バイナリログの保持期間は5分間担っている。→設定は専用のストアドで設定する
+                        - バイナリログの転送に専用ユーザを作成して実行。→グローバル権限が必要。全スレーブのレプリケーションが止まった!?
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## 今後の取組
+
+                      - スローログはConsoleから取得できる
+                      - MySQL WorkBenchで利用可能
+
+                        - 直接続できないのでSSHトンネリングして接続する
+                </script>
+            </section>
+        </section>
+
+        <section data-background="#f8981d">
+            <section data-markdown="">
+                <script type="text/template">
+                    # まとめ、感想
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## まとめ・感想
+
+                      * アプリの設計自体がクラウドネイティブにして対応する必要がある部分もある
+                      * statelessにできるのであれば簡単にスケールする
+                      * DBは利用がヘビーならMHA for MySQL、ライトならRDSを使うのがポピュラー
+                      * サーバの構成・設定・状態もコードで記述するのが普通になるのだはないか
+                </script>
+            </section>
+        </section>
+
+        <section data-background="#f8981d">
+            <section data-markdown="">
+                <script type="text/template">
+                    # 関連サイト・資料リンク
+
+                    * [JAWS DAYS 2014(公式サイト)](https://event.shoeisha.jp/devsumi/20140213/)
+                    * [意外と知らないリザーブドインスタンス -すぐに効くコスト削減-](http://www.slideshare.net/HiroshiTakayama/jawsdays20140315-publix)
+                    * [ACEに聞け!(Amazon RDS編)](http://www.slideshare.net/itabashimasayuki/jaws-day2014rds-32337898)
+                    * [AWS Cloud Design Pattern for Enterprise](http://www.slideshare.net/c95029/enterprise-cdp-20140315public)
+                    * [”技術的負債”を問いなおす](https://speakerdeck.com/kentaro/rethinking-technical-debt)
+                    * [「クラウドソーシングLancers」を支えるクラウドコンピューティング](http://www.slideshare.net/kkino0927/jaws-days-2013aws)
+                </script>
+            </section>
+        </section>
+
+        <section data-background="#f8981d">
+            <section data-markdown="">
+                <script type="text/template">
+                    # END
+                </script>
+            </section>
+        </section>
+    </div>
+
+</div>
+
+<script src="lib/js/head.min.js"></script>
+<script src="js/reveal.min.js"></script>
+
+<script>
+
+    // Full list of configuration options available here:
+    // https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+
+        theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+        transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+        // Parallax scrolling
+        // parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+        // parallaxBackgroundSize: '2100px 900px',
+
+        // Optional libraries used to extend on reveal.js
+        dependencies: [
+            { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+            { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+            { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+            { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+            { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+            { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+        ]
+    });
+
+</script>
+
+</body>
+</html>
