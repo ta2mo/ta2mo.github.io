@@ -3,7 +3,7 @@
   <title><![CDATA[776]]></title>
   <link href="http://yoursite.com/atom.xml" rel="self"/>
   <link href="http://yoursite.com/"/>
-  <updated>2014-02-20T02:25:09+09:00</updated>
+  <updated>2014-03-18T00:12:00+09:00</updated>
   <id>http://yoursite.com/</id>
   <author>
     <name><![CDATA[naokun776]]></name>
@@ -13,13 +13,61 @@
 
   
   <entry>
+    <title type="html"><![CDATA[JAWS DAYS 2014に参加してみたメモ]]></title>
+    <link href="http://yoursite.com/blog/2014/03/17/jaws-days-2014/"/>
+    <updated>2014-03-17T23:32:41+09:00</updated>
+    <id>http://yoursite.com/blog/2014/03/17/jaws-days-2014</id>
+    <content type="html"><![CDATA[<p>2014/03/15(土)に<a href="http://jawsdays2014.jaws-ug.jp/">JAWS DAYS 2014</a>に参加してきました。その雑感。</p>
+
+<!-- more -->
+
+
+<h3>聴講したセッション</h3>
+
+<ul>
+<li>伊藤直也さん 「Immutable Infrastructure」</li>
+<li>高山博史さん&amp;櫻井貴江子さん 「意外としらないリザーブドインスタンス。すぐに聴くコスト削減」</li>
+<li>板橋正之さん 「RDS」</li>
+<li>本木友浩さん 「ELB/AutoScaling」</li>
+<li>玉川憲さん&amp;片山暁雄さん 「AWSクラウドデザインパターン for Enterprise」</li>
+<li>竹本賢一さん&amp;渡辺起さん 「世界で展開する新しいネットワークサービス「Miiverse＿のAWS活用事例」</li>
+<li>栗林健太郎さん 「「技術的負債」を問いなおす」</li>
+<li>金澤裕毅さん 「「クラウドソーシング Lancers」を支えるRDS for MySQL」</li>
+</ul>
+
+
+<h2>感想</h2>
+
+<ul>
+<li>サクッと楽にサーバが作れるようになると楽にできるようにアプリ側の流儀も変わる。(stateless)</li>
+<li>本番環境の振る舞いや状態がコードになると開発環境も同じコードで作れるので環境の差分が限定的、局所的になる。</li>
+<li>そうなると今度は本番とのネットワーク構成が大事。ここまで一緒にできる世界が来たら開発と本番という垣根がなくなる。</li>
+<li>コンテナ型の仮想化すごい。これは要調査。使ってみよう。</li>
+<li>AWSのベスト・プラクティスは使ってみないとわからないことも多そう。インフラ経験が少ない自分には地雷を踏めるほどの技量が・・・</li>
+<li>AWS上で運用しているサービスでいつもきになるのがDB周り。EC2かRDSのメリット・デメリットの事例が聞けてよかった。クセが許容できるならRDS、自分で面倒見れるコストが払えるならMySQL on EC2という印象。</li>
+<li>クラウドネイティブなアプリにできる要件ならそっちのほうがコストが下がりそう。</li>
+<li>基本的なインフラ管理できているからAWSも使いこなせる感。</li>
+<li>インフラ面倒みれてます→インフラの自動化・定型化・コード化→クラウドネイティブなアプリ設計+Immutable Infrastructureの文化段階。</li>
+</ul>
+
+
+<h2>振り返って</h2>
+
+<ul>
+<li>秘伝の手順書とサーバ調達に３ヶ月かかる今の境遇を考えて泣きそう。いや泣いた。</li>
+<li>Civ5で行ったらチャリオットで機甲師団と戦うような現状。できることから真似して一歩ずつがんばろう。</li>
+<li>来年もあるならぜひとも参加したい。それまでにはもっとAWSを使い込もう。</li>
+</ul>
+
+]]></content>
+  </entry>
+  
+  <entry>
     <title type="html"><![CDATA[JJUGナイトセミナに参加してみたメモ]]></title>
     <link href="http://yoursite.com/blog/2014/02/20/jjug-20140219/"/>
     <updated>2014-02-20T01:45:02+09:00</updated>
     <id>http://yoursite.com/blog/2014/02/20/jjug-20140219</id>
-    <content type="html"><![CDATA[<h1>JJUGナイトセミナに参加してみたメモ</h1>
-
-<p><a href="http://jjug.doorkeeper.jp/events/8848">【東京】JJUG ナイトセミナ 「2.19 Eclipse、NetBeans、IntelliJ IDEA 3大IDE頂上決戦 」</a>に参加しました。そのメモ。</p>
+    <content type="html"><![CDATA[<p><a href="http://jjug.doorkeeper.jp/events/8848">【東京】JJUG ナイトセミナ 「2.19 Eclipse、NetBeans、IntelliJ IDEA 3大IDE頂上決戦 」</a>に参加しました。そのメモ。</p>
 
 <!-- more -->
 
