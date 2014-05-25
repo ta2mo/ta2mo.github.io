@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="ja"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta charset="UTF-8">
+        <title>Preview</title>
+        <link type="text/css" href="./index_files/previm.css" rel="stylesheet" media="all">
+    </head>
+    <body>
+        <div id="header">
+        </div>
+        <div id="preview"><h1><a href="http://jjug.doorkeeper.jp/events/10618">【東京】 JJUG&amp;JGGUG 共催ナイトセミナ 「4.30 2時間で分かる！次世代ビルドツールの本命Gradleの全貌」</a></h1>
+<h1>「導入編」 by 須江信洋氏 (@nobusue)</h1>
+<ul>
+<li><p><a href="http://www.slideshare.net/nobusue/jjug-20140430-gradleintro">資料</a></p>
+</li>
+<li><p>Japan Grails/Groovy User Group</p>
+</li>
+</ul>
+<h2>Gradle概要</h2>
+<ul>
+<li>エンタープライズオートメーションを目指している</li>
+</ul>
+<h3>Gradleとは</h3>
+<ul>
+<li>Ant/Mavenの課題を解決するビルドツール</li>
+<li>標準化と柔軟性の両立</li>
+<li><p>ビルドスクリプトはGroovyで記述(ファイル操作が楽だったり)</p>
+<ul>
+<li>利用事例:Hivernate、Spring</li>
+</ul>
+</li>
+</ul>
+<h3>ビルドツールの歴史</h3>
+<ul>
+<li>手続き型-</li>
+<li>スクリプト-XML</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="left">ビルドツール名</th>
+<th align="left">特徴</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Make</td>
+<td align="left">UNIXの文脈でよく使われる</td>
+</tr>
+<tr>
+<td align="left">Ant</td>
+<td align="left">JavaとXMLでクロスプラットフォームを実現</td>
+</tr>
+<tr>
+<td align="left">Maven</td>
+<td align="left">ビルドにドメインモデル(POM)と「依存性管理」を導入</td>
+</tr>
+<tr>
+<td align="left">Gradle</td>
+<td align="left">ビルドを「言語内DSL」で記述。ドメインモデルをスクリプトで直接操作する。</td>
+</tr>
+</tbody>
+</table>
+<h3>Gradle DSL</h3>
+<ul>
+<li>Gradleが独自に定義する文法</li>
+<li>条件分岐=Groovyのifを使って見通しよくかける</li>
+<li>Tomcatプラグインを使っている場合にsrc/main/WEB-INF以下に出力したい場合にも対応可能</li>
+</ul>
+<h3>マルチプロジェクト</h3>
+<ul>
+<li>複数プロジェクトから構成されるプロジェクトのビルドを定義</li>
+<li>サブプロジェクト間の依存関係を定義可能</li>
+<li>サブプロジェクトに共通する処理や設定の一元化が可能</li>
+<li>Gradleのkiller featureの一つ</li>
+</ul>
+<h3>Gradleラッパー</h3>
+<ul>
+<li>Gradleの個別導入を不要にした</li>
+<li><p>Gradleラッパーの有効なケース</p>
+<ul>
+<li>JenkinsなどのCI環境</li>
+<li>開発者の環境構築負荷の軽減</li>
+<li>利用するGradleのバージョン統一</li>
+</ul>
+</li>
+<li><p>Gradle導入済みの環境で</p>
+<pre><code>  gradle wrapper</code></pre>
+<p>するとGradleのブートストラップが生成される</p>
+</li>
+</ul>
+<h3>Gradleデーモン</h3>
+<ul>
+<li>Gradleのプロセスを常駐し、起動を高速化</li>
+<li>GRADLE_OPTSまたはgradle.propertiesに一行追加するとデフォルトに</li>
+</ul>
+<h2>Gradleの利用方法</h2>
+<h3>Gradleインストール</h3>
+<ul>
+<li><p>前提</p>
+<ul>
+<li>JDK1.5以上</li>
+</ul>
+</li>
+<li><p>GVM利用 →オススメ!</p>
+</li>
+<li>ZIPを展開</li>
+</ul>
+<h2>Gradleのロードマップ</h2>
+<ul>
+<li>2014/04/30時点では1.12が最新</li>
+<li>1.xは1.12で最後。次は2.0</li>
+<li><p>最近の重点強化ポイント</p>
+<ul>
+<li>依存関係管理を柔軟・緻密に</li>
+<li>ビルドのパラレル化</li>
+<li>IDE連携</li>
+<li>ネイティブ(C言語系)ビルド対応</li>
+</ul>
+</li>
+</ul>
+<h1>「基礎編」 by 綿引琢磨氏 (@bikisuke)</h1>
+<ul>
+<li><a href="http://www.slideshare.net/bikisuke/jjug-20140430-gradlebasic">資料</a></li>
+</ul>
+<h2>Gradleのアーキテクチャ</h2>
+<ul>
+<li><p>自動化のための基板とプラグイン機構による疎結合な構造</p>
+<ul>
+<li>自動化のためのインフラとドメインオブジェクト群
+-</li>
+</ul>
+</li>
+</ul>
+<h2>Gradleの三大要素</h2>
+<ul>
+<li><p>プロジェクト</p>
+<ul>
+<li>処理対象を表すコアドメイン</li>
+<li>必ず一つある</li>
+</ul>
+</li>
+<li><p>タスク</p>
+<ul>
+<li>作業単位を表すコアドメイン</li>
+<li>ユーザが実行できる最小単位</li>
+</ul>
+</li>
+<li><p>プラグイン</p>
+<ul>
+<li>特定処理のための機能コンポーネント</li>
+<li>タスク、プロパティ、規約をパッケージングされている</li>
+</ul>
+</li>
+</ul>
+<h2>Javaプロジェクトの生成</h2>
+<ul>
+<li><p>gradle init --type <type>で指定した初期化タイプのひな形を作成する</type></p>
+<ul>
+<li>e.g gradle init --type javaでJava規約にあったプロジェクト構成を作ってくれる</li>
+</ul>
+</li>
+<li><p>Javaプラグインとは</p>
+<ul>
+<li>Javaプロジェクトのコンパイル、テスト、アーカイブに必要なタスク・プロパティ・規約を提供する</li>
+</ul>
+</li>
+</ul>
+<h2>マルチプロジェクト</h2>
+<ul>
+<li>基点となるルートプロジェクトにサブプロジェクトがツリー構造をなす</li>
+<li><p>Gradleがサポートするレイアウトは以下の2つ。レイアウトはルートプロジェクトとサブプロジェクトの位置関係で決まる</p>
+<ul>
+<li>階層レイアウト</li>
+<li>フラットレイアウト</li>
+</ul>
+</li>
+<li><p>ビルドスクリプトの定義するプラクティス</p>
+<ul>
+<li>ルートプロジェクトに集約して定義する</li>
+<li>ルートプロジェクトに共通設定を定義、サブプロジェクトに差分を定義する</li>
+<li>個別に定義する</li>
+</ul>
+</li>
+<li><p>マルチプロジェクトの勘所</p>
+<ul>
+<li><p>レイアウト構成に関して</p>
+<ul>
+<li>特定のシステムやサービスの中で使用することが明らかな場合には階層レイアウトが良い →Intellijはこちらがオススメ!!</li>
+<li>他システムでも使用するもの、汎用的なライブラリはふらっとレイアウトもしくは単一のプロジェクトとしておいたほうが柔軟に対応できる</li>
+</ul>
+</li>
+<li><p>ビルドスクリプトに関して</p>
+<ul>
+<li>基本はルートプロジェクトに共通設定を定義して差分をサブプロジェクトにするのが城跡</li>
+<li>専任のメンテナがいる場合には個別でもokかも。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h1>「発展編 ~会社で使うGradle~」 by 林政利氏 (@literalice)</h1>
+<ul>
+<li><a href="http://www.slideshare.net/literalice/gradle-34150436">資料</a></li>
+</ul>
+<h2>信頼性の高いビルド</h2>
+<ul>
+<li>キャッシュを利用した依存性解決</li>
+<li>Gradleのラッパー</li>
+<li>比較ビルド</li>
+</ul>
+<h2>気軽なカスタマイズ</h2>
+<h2>既存環境の利用</h2>
+<ul>
+<li>Ant(ファーストクラスオブジェクトとして扱える)</li>
+<li>社内リポジトリ</li>
+<li>build.xml</li>
+</ul>
+<h3>Mavenを使う場合</h3>
+<ul>
+<li>Mavenプラグインを使うことはできない</li>
+<li><p>pom.xmlを活用することができる</p>
+<ul>
+<li>pom.xml -&gt; gradle init --type pom -&gt; build.gradle</li>
+</ul>
+</li>
+</ul>
+</div>
+        <div id="footer">
+            <script src="./index_files/marked-0.2.9.js"></script>
+            <script src="./index_files/textile.js"></script>
+            <script src="./index_files/previm.js"></script>
+            <div id="monitor"></div>
+        </div>
+    
+
+</body></html>

@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="ja"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta charset="UTF-8">
+        <title>Preview</title>
+        <link type="text/css" href="./index_files/previm.css" rel="stylesheet" media="all">
+    </head>
+    <body>
+        <div id="header">
+        </div>
+        <div id="preview"><h1>JJUG CCC 2014 Spring</h1>
+<h1><a href="">Java 8 for Java EE 7/6 by 岩崎 浩文</a></h1>
+<h2>JavaEEとは</h2>
+<ul>
+<li><p>アプリケーションサーバの仕様</p>
+<ul>
+<li>EJB</li>
+<li>JMS</li>
+<li>JSF</li>
+</ul>
+</li>
+<li><p>JavaEEは同じバージョン数字のJavaSEを前提にしている</p>
+</li>
+</ul>
+<h2>現状対応しているアプリケーションサーバ</h2>
+<ul>
+<li>Glassfish</li>
+<li>WildFly</li>
+</ul>
+<h2>Java SE 8の変更点</h2>
+<ul>
+<li><p>追加された機能</p>
+<ul>
+<li>Stream API</li>
+<li>Date Time API</li>
+<li>JavaFX</li>
+</ul>
+</li>
+<li><p>Java SE 8でなくなった機能</p>
+<ul>
+<li>com.sun.misc.*</li>
+<li>JDBC-ODBC Bredgeがなくなった</li>
+</ul>
+</li>
+</ul>
+<h2>Java SE 8のポイント</h2>
+<ul>
+<li><p>Lamda with StreamAPI</p>
+<p>順番を守って実行してくれる(パラレル化してくれないから遅くなるかも)→forEachOrderedメソッド</p>
+</li>
+<li><p>Data Time API</p>
+<p>nano secondになった</p>
+</li>
+<li><p>TIMESTAMP(JDBC)</p>
+<p>DATE java.time.LocalDate
+TIME java.time.LocalDate
+TIMESTAMP java.time.LocalDateTime
+TIME WITH TIMEZONE java.time.OffsetTime</p>
+</li>
+<li><p>Type Annotation</p>
+<ul>
+<li>パラメータのnullなんかのチェックメソッドを書かなくてもよい</li>
+</ul>
+</li>
+</ul>
+<h2>業務で適用するポイント</h2>
+<ul>
+<li>JSF</li>
+<li>EJB</li>
+<li>JTA</li>
+<li><p>JPA</p>
+</li>
+<li><p>Parallel Streamに関しては動いたらラッキー。アプリケーションサーバー毎に検証する必要がある。</p>
+</li>
+</ul>
+<h1><a href="">Java トラブルに備えよう by 上妻 宜人</a></h1>
+<h2>Javaのトラブルとは？</h2>
+<ul>
+<li>OutOfmemory</li>
+<li>突然の無応答 or スローダウン etc...</li>
+</ul>
+<h2>困ること</h2>
+<ul>
+<li>GCログがない</li>
+<li>ヒストグラムがない</li>
+<li><p>アプリログがない</p>
+</li>
+<li><p>情報がないため対応ができない</p>
+</li>
+</ul>
+<h2>Javaのトラブルに応じた情報収集方法</h2>
+<ul>
+<li><p>GCログの出力(負荷小)</p>
+<ul>
+<li>GCログにタイムスタンプをつけよう</li>
+<li>GCログのローテーションしよう(サイズローテーション)</li>
+<li>GCViewer使ってる</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>クラスヒストグラム(負荷中)</p>
+<ul>
+<li>Javaヒープを多く占めているクラスをテキスト形式で取得</li>
+<li>コマンドラインで取得</li>
+<li>オプションを指定して取得</li>
+</ul>
+</li>
+<li><p>ヒープダンプを取る(負荷大)</p>
+<ul>
+<li>負荷が大きいため商用ではOOMエラー時自動取得がオススメ→オプションをつける</li>
+<li>ヒープダンプ解析: Eclipse Memory Analyzer</li>
+</ul>
+</li>
+</ul>
+<h3>OOMの場合</h3>
+<ul>
+<li><p>突然跳ね上がるパターン</p>
+<ul>
+<li><p>エラー時にどんなコードが動いていたか</p>
+<ul>
+<li>Java起動オプションに普段から設定しておく</li>
+<li>OOMエラー発生時に自動的にヒープダンプで状況保存</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>ジワジワ型</p>
+<ul>
+<li>長い時間をかけてOOM</li>
+<li>再現に時間がかかる</li>
+<li>ORマッパキャッシュ/自作キャッシュ/セッション肥大化</li>
+<li><p>商用のみで再現するケースが多いのでOOMに至るまでの時系列のログがほしい</p>
+<ul>
+<li><p>クラスヒスとグラムを収集する</p>
+<ul>
+<li>cronを利用して定期的に取得、テキストデータをグラフ化</li>
+<li>HeapStatsで取得する</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3>スローダウンの場合</h3>
+<ul>
+<li><p>スレッドダンプをとる</p>
+<ul>
+<li>JDK1.4.2 : kill -3 <pid></pid></li>
+<li>JDK7u4 : ${JAVA_HOME}/bin/jcmd <pid> Thread.print</pid></li>
+</ul>
+</li>
+<li><p>可視化する</p>
+<ul>
+<li>侍</li>
+<li>ThreadLoic</li>
+</ul>
+</li>
+<li><p>どの機能が遅いか分かったがどこが遅いかわからない</p>
+<ul>
+<li><p>hprofでプロファイリング</p>
+<ul>
+<li>集計対象はサンプリング時にアクティブなスレッドのみ</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>商用での定常的収集にはJava Flight Recorderがオススメ</p>
+</li>
+<li><p>JTAタイムアウト後も止まらないパターンがある場合の対処法</p>
+<ul>
+<li><p>JDBC SQLタイムアウト</p>
+<ul>
+<li>java.sql.statement.setQueryTimeout(int seconds)</li>
+<li>スレッド割り込みでなく、キャンセル要求送信で実現</li>
+</ul>
+</li>
+<li><p>APサーバ機能</p>
+<ul>
+<li>WildFly : set-tx-query-timeoutの設定</li>
+<li>WebLogic12c : 文タイムアウトの設定</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3>OSの設定漏れ</h3>
+<p>e.g. too may file open</p>
+<ul>
+<li><p>まずは事実を情報収集をする</p>
+<ul>
+<li>lsof -p <java_pid></java_pid></li>
+</ul>
+</li>
+<li><p>スレッド数上限に達した時も情報収集する</p>
+</li>
+</ul>
+<h1><a href="https://speakerdeck.com/kikutaro/chu-metefalse-java-ee-kai-fa-karaxue-ndakoto-jjug-ccc-2014-spring">初めてのJava EE開発から学んだこと by 菊田 洋一</a></h1>
+<h2>JavaEEを選ぶまで</h2>
+<ul>
+<li>ユーザ100名ほどの小さい販売管理システム</li>
+<li><p>調査→Java EEプロトタイプ作成→採用判断</p>
+<ul>
+<li><p>調査当時(2012年〜)</p>
+<ul>
+<li>日本語の情報が少なめ</li>
+<li>J2EEの不評ぶりとSpring、Seasarが人気</li>
+<li>Oracleの寺田さんが進めてる</li>
+</ul>
+</li>
+<li><p>プロトタイプ作成</p>
+<ul>
+<li>プロトタイプ開発を通じて機能理解や課題の洗い出しを実施</li>
+<li>勉強会などへ参加</li>
+</ul>
+</li>
+<li><p>採用判断</p>
+<ul>
+<li>プロトタイプ開発で開発できそうな感触を得た</li>
+<li>日本でもJava EEに関する質の高い情報があった</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2>開発で利用したもの</h2>
+<ul>
+<li><p>検索、一覧系画面、登録、編集、削除を含む画面を作成して必要な要素を習得した</p>
+<ul>
+<li>JSF : </li>
+<li>EJB : ビジネスロジックを実装するためのコンポーネント。コンテナによるトランザクション管理などを提供</li>
+<li><p>JPA : O/Rマッピングによる永続化</p>
+<ul>
+<li>EntityManager API</li>
+<li>JPQL</li>
+</ul>
+</li>
+<li><p>CDI : 依存性の注入</p>
+<ul>
+<li>@Alternativeによる注入対象の切り替え</li>
+<li>@InterceptorによるAOP</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2>プロトタイプ・現在の開発</h2>
+<ul>
+<li>開発環境 : NetBeans</li>
+<li>ビルド : Maven</li>
+<li>APサーバ : Glassfish</li>
+<li>JSF : PRIME FACES</li>
+<li><p>JPA : eclipse link</p>
+</li>
+<li><p>Java EEはオールインワンと言われるが実際にはいろいろ取捨選択する必要がある</p>
+</li>
+</ul>
+<h3>テスト</h3>
+<ul>
+<li><p>Arquillian Persistence Extension</p>
+<ul>
+<li>テスト実行前→テスト実行後のテストデータをXMLで指定し、実行後に利用した行のみ削除</li>
+</ul>
+</li>
+</ul>
+<h3>JavaEEの評判</h3>
+<ul>
+<li><p>JSF</p>
+<ul>
+<li>ダメ</li>
+<li>コンポーネントツリーを抱えるので性能面で注意が必要</li>
+<li>HTTPを意識しない抽象化されすぎている</li>
+<li>デバッグが難しい</li>
+<li><p>サーバサイドから生成されるHTMLが難しい</p>
+</li>
+<li><p>PrimeFacesのような立地コンポーネントを利用して、Javascript得意な人がいなくても複雑なコンポーネントを利用可能</p>
+</li>
+<li>デザイナがいないチームでも見栄えの良い画面ができる</li>
+<li>Show caseがあって設計時からデザインのすり合わせができる</li>
+</ul>
+</li>
+<li><p>JPA</p>
+<ul>
+<li>O/Rマッパーはパフォーマンスを含めて注意が必要</li>
+<li>JPQLでDBベンダを意識せずに開発できるっていうメリットがある場面があるのか</li>
+<li>SessionScopeやApplicationScopeを多様せず、ViewScopeを中心にしたスコープにする</li>
+<li>大量コンポーネントを画面に配置するのは避ける</li>
+<li>開発中は必ずSQL実行回数をチェックして減らす</li>
+<li>Jmeterを利用した負荷試験を行う</li>
+</ul>
+</li>
+</ul>
+<h3>JavaEE6アプリをオフラインに対応させる例</h3>
+<ul>
+<li>Embedded Glassfish、組み込みデータベース、Apache Derbyを使用してオフラインでアプリを実行する環境をつくった</li>
+</ul>
+<h2>コミュニティを通じた学び</h2>
+<ul>
+<li>学ぶ場や情報がたくさんある</li>
+</ul>
+<h1><a href="http://www.slideshare.net/seratch/jjug-ccc-2014spring">Skinny Framework で始める Scala by 瀬良 和弘</a></h1>
+<h2>Scala互換性の件</h2>
+<h2>ScalaのWebフレームワーク事情</h2>
+<ul>
+<li>Liftほぼ一択</li>
+<li>2012年にPlay Framework 2.0が登場し圧倒的に人気に</li>
+<li>軽量なScalatra、Unifiltered、Sprayなどある</li>
+</ul>
+<h2>Skinny Framework</h2>
+<ul>
+<li>フルスタックフレームワーク</li>
+<li>Java1.6以上、 Servlet 3.0以上</li>
+<li>ScalaはEclipseではなくIntellij IDEAの方が良いサポートしている</li>
+<li>既存DBからscaffoldを生成する。</li>
+</ul>
+<h2>Skinnyのメリット</h2>
+<ul>
+<li>Play1/Rails的なものが欲しい</li>
+<li>全体的にJavaでの一般的なスタイルよりも本質的なコードのみで簡潔にかける</li>
+<li>ScalikeJDBCはJavaでは実装できない利便性・柔軟性</li>
+<li>Scalaでの開発ボトルネックはコンパイル時間、周辺ツールの流儀を学習すること。skinnyはこれを解決する。</li>
+</ul>
+<h1><a href="http://www.slideshare.net/masatoshitada7/jpa20140518-ccc-r15-jjug-ccc">Java EE 7 対応! JPA の同時実行制御とロック by 多田 真敏</a></h1>
+<h2>バージョン</h2>
+<ul>
+<li>対象のテーブルにバージョン列を追加する</li>
+<li>Entityのバージョンフィールドには@Versionアノテーションを付加する</li>
+</ul>
+<h2>LockModeTypeの指定方法</h2>
+<ul>
+<li>EntityMangeインターフェース</li>
+<li>Query(TypedQuery)インターフェース</li>
+<li>NamedQueryアノテーション</li>
+</ul>
+<h2>注意点</h2>
+<ul>
+<li>必ずSQLログを出力して、一通りの挙動を確認しましょう</li>
+<li>SQLログの順番がDB内での実行順序とは異なる場合があるので注意</li>
+<li>バージョン番号に依存するコードがある場合にHibernateとEclipselinkでバージョン番号のインクリメント回数が異なるので注意が必要</li>
+</ul>
+<h1><a href="">最近の Java Web 開発 (2014 春) by 文字 拓郎</a></h1>
+<h1>プロジェクトの概要</h1>
+<ul>
+<li><p>インフラ条件</p>
+<ul>
+<li>Java 7</li>
+<li>WebLogic 12c</li>
+<li>Oracle 11g</li>
+<li>IE9</li>
+</ul>
+</li>
+<li><p>既存Webシステムの問題点</p>
+<ul>
+<li>構造の欠落</li>
+<li>クライアントとサーバが密結合</li>
+</ul>
+</li>
+<li><p>SPAでつくってみた</p>
+<ul>
+<li>クライアント-サーバを分離</li>
+<li>B2CのWebサービスはリッチ化が進んでいる</li>
+</ul>
+</li>
+</ul>
+<h1>アーキテクチャ説明</h1>
+<ul>
+<li><p>クライアント</p>
+<ul>
+<li>Backbone.js</li>
+</ul>
+</li>
+<li><p>サーバ</p>
+<ul>
+<li>Gradle(マルチプロジェクト構成)</li>
+<li>Guice</li>
+<li>Jersey</li>
+<li><p>Hibernate</p>
+<ul>
+<li>Type-safe extension</li>
+</ul>
+</li>
+<li><p>Guava</p>
+</li>
+<li>Jackson</li>
+</ul>
+</li>
+</ul>
+<h1>まとめ</h1>
+<ul>
+<li><p>SPAは採用すべき</p>
+<ul>
+<li>明らかなユーザエクスペリエンスの工場</li>
+<li>開発面でも利点がある</li>
+</ul>
+</li>
+</ul>
+</div>
+        <div id="footer">
+            <script src="./index_files/marked-0.2.9.js"></script>
+            <script src="./index_files/textile.js"></script>
+            <script src="./index_files/previm.js"></script>
+            <div id="monitor"></div>
+        </div>
+    
+
+</body></html>

@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="ja"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta charset="UTF-8">
+        <title>Preview</title>
+        <link type="text/css" href="./index_files/previm.css" rel="stylesheet" media="all">
+    </head>
+    <body>
+        <div id="header">
+        </div>
+        <div id="preview"><h1><a href="https://oj-events.jp/public/application/add/169?ss_ad_code=wlc01">Java Day Tokyo 2014</a></h1>
+<h1><a href="https://oj-events.jp/public/session/view/908">基調講演</a></h1>
+<h2>Javaに関連する一年の歩み</h2>
+<ul>
+<li>Java SE 8のリリース</li>
+<li><p>Java ME 8のリリース</p>
+<ul>
+<li>アプリケーション開発環境の改善</li>
+<li>アプリケーションパフォーマンスの改善</li>
+<li>IOT</li>
+</ul>
+</li>
+</ul>
+<h2>Java SE 8</h2>
+<ul>
+<li><p>Lambda and Stream</p>
+<ul>
+<li>Lambda expressions</li>
+<li>Default methods</li>
+<li>Stream API</li>
+</ul>
+</li>
+<li><p>Java SE 8 Compact Profiles</p>
+<ul>
+<li>エンベデッド向け</li>
+</ul>
+</li>
+<li><p>Java SE 8 の日本語ドキュメント</p>
+</li>
+</ul>
+<h2>Java ME 8</h2>
+<h2>Java 8以降の話</h2>
+<ul>
+<li>Project Jigsaw</li>
+<li>Project Sumatra - Java for GPUs</li>
+</ul>
+<h2>IOT</h2>
+<ul>
+<li><p>接続するデバイス数の増加</p>
+<ul>
+<li><p>データの増加</p>
+<ul>
+<li>Volume</li>
+<li>Variety</li>
+<li>Velocity</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2>Java Embedded</h2>
+<ul>
+<li>様々なフットプリントのVM</li>
+</ul>
+<h2>NECのロボットの事例</h2>
+<h2>Panasonicの事例</h2>
+<h2>Java EE 7</h2>
+<ul>
+<li><p>HTML5</p>
+<ul>
+<li>WebSockets</li>
+<li>annotationの強化</li>
+</ul>
+</li>
+<li><p>クラウド時代のスタンダードなJava</p>
+<ul>
+<li>コンテナベースのセキュリティ</li>
+<li>デフォルトリソース</li>
+<li>スキーマ生成</li>
+<li>クライアント用のRESTfulサービス</li>
+<li>JSF</li>
+</ul>
+</li>
+</ul>
+<h2>Java EE 8</h2>
+<ul>
+<li><p>HTML5 / Web Tier Enhancements</p>
+<ul>
+<li>HTTP 2.0</li>
+<li>Json Binding</li>
+<li>Sever-sent event</li>
+<li>JAX-RS action-based MVC</li>
+</ul>
+</li>
+<li><p>CDI Alignment / Ease-of-Development</p>
+<ul>
+<li>JAX-RS injection alignment</li>
+<li>WebSockets</li>
+</ul>
+</li>
+<li><p>Cloud Enablement</p>
+<ul>
+<li>Multitenancy</li>
+</ul>
+</li>
+</ul>
+<h1><a href="https://oj-events.jp/public/session/view/911">Java SE 8 概要</a></h1>
+<h2>Java SE 8の機能</h2>
+<ul>
+<li>Annotation on Type</li>
+<li>Date and Time API</li>
+<li>Lambda expressions</li>
+</ul>
+<h2>JDK Enhancement Proposals</h2>
+<ul>
+<li>OpenJDKのコミッタープロセスで機能を提案する</li>
+</ul>
+<h2>言語変更点</h2>
+<ul>
+<li><p>Lambda Expressions</p>
+<ul>
+<li>Behaviorがどのように渡っていくか</li>
+<li>匿名の関数を渡していく</li>
+<li>メソッドのインターフェイス</li>
+</ul>
+</li>
+<li><p>Default Methods</p>
+<ul>
+<li>インターフェイスのメソッドを追加することで既存のインターフェイスを拡張する</li>
+<li>後方互換性に影響がありそう</li>
+<li>多重継承のBehaviorをJavaに持ち込んだ</li>
+<li>stateの多重継承はない?</li>
+</ul>
+</li>
+<li><p>Annotations on Java Types</p>
+<ul>
+<li>DIとか</li>
+<li>パラメータの型指定でも使える？→コンパイル時にチェックする。</li>
+</ul>
+</li>
+<li><p>型パラメータ</p>
+<ul>
+<li>ScalaのListのheadぽい例</li>
+</ul>
+</li>
+<li><p>Access To Parameter Names At Runtime</p>
+<ul>
+<li>リフレクションAPIで名前をメソッドに送れる?</li>
+</ul>
+</li>
+<li><p>その他</p>
+<ul>
+<li>Repeating annotations</li>
+<li>apt toolを削除</li>
+<li>DocTree API</li>
+<li>DocLint tool</li>
+<li><p>Javadocのjavax.toolsサポート</p>
+<ul>
+<li>Javadocからannotationとってきたり</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2>Coreライブラリ</h2>
+<ul>
+<li><p>Enhance Core Libraries With Lambdas</p>
+<ul>
+<li>クラスライブラリの高速化の恩恵がある</li>
+</ul>
+</li>
+<li><p>Concurrency updates</p>
+<ul>
+<li><p>Scalable update variables</p>
+<ul>
+<li>DoubleAccumulator,DoubleAdder</li>
+</ul>
+</li>
+<li><p>ForkJoinPool improvements</p>
+</li>
+</ul>
+</li>
+<li><p>Bulk Data Operations For Collections</p>
+<ul>
+<li><p>Java.util.stream package</p>
+<ul>
+<li>Stream, Coolector interfaces</li>
+</ul>
+</li>
+<li><p>Serial and parallel implementations</p>
+</li>
+<li>Parallel implementation builds on Fork-Join framework</li>
+<li>Lazy evaluation</li>
+</ul>
+</li>
+<li><p>java.util.function Package</p>
+<ul>
+<li>Streamと一緒にLambda式につかう</li>
+</ul>
+</li>
+<li><p>Parallel Array Sorting</p>
+<ul>
+<li><p>java.util.Arrays</p>
+<ul>
+<li>parallelSort</li>
+<li>Fork-Join framework上に構成されている</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Date And Time APIs</p>
+</li>
+<li><p>JDBC 4.2</p>
+<ul>
+<li>ResultSet, PreparedStatement, CallableStatement</li>
+<li>REF_CURSOR</li>
+<li>CARDINALITY, Pages</li>
+</ul>
+</li>
+<li><p>Base64 Encoding and Decoding</p>
+<ul>
+<li>java.util.Base64.Endocer</li>
+<li>java.util.Base64.Decoder</li>
+</ul>
+</li>
+<li><p>Unicode 6.2</p>
+</li>
+<li><p>Enhanced Certificate Revocation-Checing API</p>
+<ul>
+<li>CertPathChecker</li>
+<li>CertPathParameters</li>
+</ul>
+</li>
+<li><p>HTTP URL Permissions</p>
+<ul>
+<li>IPアドレス→ポートやURLや名前でコネクションのPermission制御</li>
+<li>java.net.SocketPermission</li>
+<li>HTTPメソッドのサポート</li>
+</ul>
+</li>
+</ul>
+<h2>Platform</h2>
+<ul>
+<li>JavaFXの起動</li>
+<li><p>Compact Profiles</p>
+<ul>
+<li>Project Jigsawも関連している</li>
+<li>Compact3 ProfileにはGUIライブラリは含まれない</li>
+</ul>
+</li>
+<li><p>Modularisation Preparation</p>
+<ul>
+<li>ServiceLoaderを使う</li>
+<li>Jigsaw向けの準備</li>
+</ul>
+</li>
+<li><p>Nashorn JavaScript Engine</p>
+<ul>
+<li>javax.script API</li>
+<li>javascriptを走らせるjjsという新しいコマンドラインツール</li>
+</ul>
+</li>
+<li><p>Retire Rarely-Used GC Combinations</p>
+</li>
+<li><p>Remove The Permanent Generation</p>
+<ul>
+<li>Nomore need to tune the size of it(Permanentとか)</li>
+<li>Current objects moved to Java heap or native memory</li>
+</ul>
+</li>
+</ul>
+<h1><a href="https://oj-events.jp/public/session/view/923">Java SE 8におけるHotSpotの進化</a></h1>
+<ul>
+<li>バック・デイビッド</li>
+<li>Blog <a href="https://blogs.oracle.com/buck/">https://blogs.oracle.com/buck/</a></li>
+</ul>
+<h2>PermGenの廃止</h2>
+<ul>
+<li><p>PermGenとは</p>
+<ul>
+<li>クラスのメタデータなどを格納する場所</li>
+<li>バイトコード、internされた文字列、staticフィールドの値</li>
+</ul>
+</li>
+<li><p>PermGenの良くない店</p>
+<ul>
+<li><p>サイジングが困難</p>
+<ul>
+<li><p>考えられるポイント</p>
+<ul>
+<li>ロードするクラスの数</li>
+<li>ロードするクラスの大きさ</li>
+<li>クラスのオーバーヘッド</li>
+</ul>
+</li>
+<li><p>試行錯誤しないといけない</p>
+</li>
+<li>デフォルトが小さい : 64MB-85MB</li>
+</ul>
+</li>
+<li><p>パフォーマンスへの悪影響</p>
+</li>
+</ul>
+</li>
+<li><p>解決策</p>
+<ul>
+<li>PermGenを廃止</li>
+<li>Metaspaceに格納する</li>
+<li>Heapの一部ではなくなった</li>
+</ul>
+</li>
+<li><p>Metaspace vs PermGen</p>
+<ul>
+<li>デフォルトではサイズの制限がない→ユーザが意識する必要性がない</li>
+<li>GCシステムが管理する必要がない</li>
+<li>アンロードをClassLoaderの単位で行う→断片化しにくい</li>
+</ul>
+</li>
+<li><p>Metaspace Allocation</p>
+</li>
+<li><p>High Water Mark(高水位標)</p>
+<ul>
+<li>Full GCが発生しないとMetaspaceのコレクションが行われない</li>
+<li>Full GCの頻度が低いシステムのメモリ使用量を制御する必要がある</li>
+<li>MetaspaceのサイズがHWMを超えるとFull GCが実行される</li>
+<li><p>調整する必要がある場合</p>
+<ul>
+<li>Full GCの頻度が高過ぎる時</li>
+<li>メモリの使用量が大きすぎる時</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Compressed Oops (圧縮参照)の概念</p>
+<ul>
+<li><p>64-biのマシンでも、オブジェクトのアドレスを32bitに格納する</p>
+<ul>
+<li>Javaヒープの使用量を節約</li>
+<li>ヒープのベースアドレスからのオフセットを利用</li>
+<li>アドレスのLSBを省略</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Klassポインターも圧縮する</p>
+<ul>
+<li>Compressed Oopsと同じようにJava Heapを節約する</li>
+<li>パフォーマンスに影響を及ぼすメモリのみ格納する</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>新しいコマンドラインのオプション</p>
+<ul>
+<li>-XX:MaxMetaspaceSize</li>
+<li>デフォルト = unlimited</li>
+<li><p>Metaspaceの最大サイズ(バイト数)を設定する</p>
+</li>
+<li><p>-XX:MetaspaceSize</p>
+</li>
+<li>デフォルト = 21MB</li>
+<li><p>起動時にFullGCの頻度を減らすために大きくする</p>
+<ul>
+<li>起動のパフォーマンスをあげる</li>
+<li>e.g. 使用量を測定してその値で先んじて確保する使い方 etc...</li>
+</ul>
+</li>
+<li><p>-XX:MinMetaspaceFreeRatio</p>
+<ul>
+<li>デフォルト = 40</li>
+</ul>
+</li>
+<li><p>-XX:MaxMetaspaceFreeRatio</p>
+<ul>
+<li>デフォルト = 70</li>
+</ul>
+</li>
+<li><p>High Water Markの拡張と縮小を制御する</p>
+</li>
+<li><p>-XX:+UseCompressedClassPointers</p>
+<ul>
+<li>64biではデフォルトで有効</li>
+</ul>
+</li>
+<li><p>-XX:CompressedClassSpaceSize</p>
+<ul>
+<li>デフォルト1G</li>
+<li>変更ができないため、デフォルト値が大きい</li>
+<li>起動時にはメモリをreserveするだけ</li>
+<li>必要に応じてcommitしていくスタイル</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>MBeanの変更</p>
+<ul>
+<li>新しいMemoryManagerMXXXXBean: MetaspaceManager</li>
+<li>新しいメモリプールMXBean: MetaspaceとCompressedClassSpace</li>
+</ul>
+</li>
+<li><p>ツール対応</p>
+<ul>
+<li>jmap -permstat → jmap -clstats</li>
+<li>jstat -gc</li>
+<li><p>jcmd <pid> GC.class_stats</pid></p>
+<ul>
+<li>対象のJVMのコマンドラインで-XX:+UnlockDiagnosticVMOptionsを追加する必要あり</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2>Tierd Compilation(階層コンパイル)</h2>
+<ul>
+<li><p>古い実装はHotSpot Expressで6u25までバックポートされた</p>
+<ul>
+<li>JDK8ではようやくデフォルトで有効</li>
+</ul>
+</li>
+<li><p>従来のHotSpotの2つのJITコンパイラ</p>
+<ul>
+<li><p>C1(-client)</p>
+<ul>
+<li>コンパイル処理が速い</li>
+<li>生成されるコードが(比較的)速くない</li>
+</ul>
+</li>
+<li><p>C2(-server)</p>
+<ul>
+<li>コンパイル時間がかかる</li>
+<li>生成されるコードが速い</li>
+</ul>
+</li>
+<li><p>Tierd Compilation</p>
+<ul>
+<li>両方のコンパイラを並行で利用</li>
+<li>速い起動</li>
+</ul>
+</li>
+<li><p>トラブルシューティング</p>
+<ul>
+<li><p>-XX:+PrintCompilation</p>
+<ul>
+<li>コンパイルレベルが追加された</li>
+</ul>
+</li>
+<li><p>-XX:+PrintTieredEvents</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2>その他の改善</h2>
+<ul>
+<li><p>JMXで診断コマンドを実行</p>
+<ul>
+<li>ネットワーク経由で診断コマンドも可能</li>
+</ul>
+</li>
+<li><p>フォールスシャリングの回避</p>
+</li>
+<li>JVM側で直接のサポートの追加</li>
+</ul>
+<h1><a href="https://oj-events.jp/public/session/view/913">Exploring JavaFX 8</a></h1>
+<ul>
+<li><p>デスクトップ用アプリケーションにするには</p>
+<ol>
+<li>Webブラウザでアプレット → good</li>
+<li>Applets</li>
+<li>Nativeパッケージ</li>
+</ol>
+</li>
+</ul>
+<h2>新機能</h2>
+<ul>
+<li><p>control</p>
+<ul>
+<li><p>DatePicker</p>
+<ul>
+<li>カスタムカレンダーフォーマット</li>
+<li>CSSサポート</li>
+</ul>
+</li>
+<li><p>TreeTableView</p>
+<ul>
+<li>複数選択のサポート</li>
+</ul>
+</li>
+<li><p>新しいモデナテーマ</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2>JavaFX Scene Builder 2</h2>
+<ul>
+<li>アップデートが最近リリースされた</li>
+<li>ドラッグアンドドロップで画面作成する</li>
+</ul>
+<h2>JavaFXのHTML5サポート</h2>
+<ul>
+<li>JavascriptのオブジェクトをJavaのプリミティブクラスへバインドしてくれる</li>
+<li>ブラウザへイベントを発行することができる?</li>
+<li><p>HTML Featuresのサポート</p>
+<ul>
+<li>Canvas and SVG</li>
+<li>Media playback</li>
+<li>web socket</li>
+<li>web workers</li>
+<li>web fonts</li>
+</ul>
+</li>
+</ul>
+<h2>JavaFXのEmbeddedデバイスの対応</h2>
+<ul>
+<li>WebViewとMediaViewは非対応</li>
+</ul>
+<h1><a href="https://oj-events.jp/public/session/view/914">Lambda式とストリームAPI、並列処理の詳細</a></h1>
+<h2>概要</h2>
+<ul>
+<li>interface Consumer.accept</li>
+<li>interface Function.apply</li>
+<li><p>interface Predicate.test</p>
+<p>Stream -&gt; filter -&gt; map -&gt; forEachという定形処理の流れになる</p>
+</li>
+</ul>
+<pre><code> void robocallEligileDrivers() {
+     list.stream()
+         .filter(p -&gt; p.getAge() &gt;= 16)
+         .map(p -&gt; )
+         .forEach();
+ }</code></pre>
+<ul>
+<li><p>Streams : a multipleicity of values = Not Collection</p>
+<ul>
+<li>no storage</li>
+<li>not (necessarily) ordered</li>
+<li>sort-of like an iterator</li>
+<li>affords serial or parallel processing</li>
+</ul>
+</li>
+<li><p>Stream pipeline</p>
+<ul>
+<li>a source</li>
+<li>zero or more intermediate operations </li>
+<li>aterminal operation</li>
+</ul>
+</li>
+<li><p>Stream source: of(...)</p>
+</li>
+<li><p>Common Collectores</p>
+<ul>
+<li>toList()</li>
+<li>joining()</li>
+<li>toMap() etc...</li>
+</ul>
+</li>
+</ul>
+</div>
+        <div id="footer">
+            <script src="./index_files/marked-0.2.9.js"></script>
+            <script src="./index_files/textile.js"></script>
+            <script src="./index_files/previm.js"></script>
+            <div id="monitor"></div>
+        </div>
+    
+
+</body></html>
