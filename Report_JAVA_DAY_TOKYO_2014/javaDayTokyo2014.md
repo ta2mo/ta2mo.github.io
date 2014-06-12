@@ -1,5 +1,7 @@
 # [Java Day Tokyo 2014](https://oj-events.jp/public/application/add/169?ss_ad_code=wlc01)
 
+ - [資料](http://www.oracle.com/us/dm/seo100304328-jp-jp-lw-ipi1-ev-2196625-ja.html)
+
 # [基調講演](https://oj-events.jp/public/session/view/908)
 
 ## Javaに関連する一年の歩み
