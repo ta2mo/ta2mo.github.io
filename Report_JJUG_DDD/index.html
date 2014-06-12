@@ -1,0 +1,389 @@
+<!doctype html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <title>JJUG DDD 2014/06/11</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="css/reveal.min.css">
+    <link rel="stylesheet" href="css/theme/beige.css" id="theme">
+
+    <!-- For syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <!-- If the query includes 'print-pdf', use the PDF print sheet -->
+    <script>
+        document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+    </script>
+
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-48150028-6', 'naokun776.github.io');
+        ga('send', 'pageview');
+    </script>
+</head>
+
+<body>
+<div class="reveal">
+    <div class="slides">
+        <section>
+            <h1>JJUG ナイトセミナー 「6.11 ドメイン駆動設計特集！ 」 </h1><br>
+        </section>
+
+        <section data-markdown="">
+            <script type="text/template">
+                ## 目次
+
+                1. [コードに語らせるために by 和智 右桂氏](#/2)
+                1. [DDDで実践する時に役に立つ話し by 加藤 潤一氏](#/3)
+                1. [まとめ・感想](#/4)
+                1. [関連リンク](#/5)
+            </script>
+        </section>
+
+        <section data-background="#CB9E67">
+            <section data-markdown="">
+                <script type="text/template">
+                    # コードに語らせるために 
+                    
+                      by 和智 右桂氏
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## アジェンダ
+
+                    - DDDとは
+                    - 開発の中のDDD
+                    - 手続きからモデル駆動へ
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    # DDDとは
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    - Domain Driven Design
+                    - 本を理解するのに文中の参考文献が役に立つ
+                </script>
+            </section>
+
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ### DDDのエッセンスとは
+
+                    - ソフトウェア開発=学習と再構築
+                    - フローの中でいつシステムの理解ができたか?
+
+                    - 学習とは
+
+                        - 顧客の業務を理解すること
+                        - 顧客の言葉で理解すること->ユビキタス言語
+
+                    - 再構築とは
+
+                        - モデルを共有すること
+                        - 業務の理解を共有する
+                        - モデルを元にソフトウェアを作る->業務の変更にソフトウェアが追随するため
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ### 大事な概念
+
+                    - ユビキタス言語(第1章)
+
+                        * チーム内のすべてのコミュニケーションとコードにおいてその言語を用いる
+                        * 図、ドキュメント、会話の中で同一の言語を用いること
+
+                    - モデル駆動設計(第1章)
+
+                        * ソフトウェアを設計する際にモデルを基に設計する
+                        * モデリングパラダイム
+
+                    - レイヤ型アーキテクチャ
+                    - イテレーティブなプロセス(第4章あたり)
+                    - 戦略的設計
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    # 開発の中のDDD
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ### システム分析
+
+                    - 機能の階層に分解する
+                    - DDDだから特別なことはない
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ### 構成図と個別の設計
+
+                    - 機能間の関連と分析及び機能毎の設計
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ### ロールによる違い(SIの例)
+
+                      - アーキテクトの場合
+
+                        * 領域の特性を見極めて協会設計とIF設計
+                        * データモデリング
+
+                      - プログラマーの場合
+
+                        * 領域内での適切な設計
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ### 保守フェーズの中でのDDD
+
+                    - DDDとはソフトウェアを改善するため手法
+                    - 新規のプロジェクトでのみ適応する手法ではない
+
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## 手続きからモデル駆動へ
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ### 複雑な業務
+
+                      - あらゆる機能で必要というわけではない
+
+                        * 単純な業務=データスキーマの操作だけで表現できるなら手続き型で十分
+
+                      - 技術面での難易度とは別
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ### エンティティの先
+
+                      - モデルによって捉える知識は名詞を見つけることにとどまらない。ビジネスの活動やルールもドメインにとって中心的。
+                      - ユーザが理解できないモデルを作ってはいけない。それはモデルではない。
+                </script>
+            </section>
+        </section>
+
+        <section data-background="#BAC494">
+            <section data-markdown="">
+                <script type="text/template">
+                    # DDDで実践する時に役に立つ話し
+
+                    by 加藤 潤一氏
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ##　DDDの進め方
+
+                    - メンバー8名、8ヶ月間
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ### プロジェクトが始まる前に
+
+                    - プロトタイプを作成
+                    - 主要なモデルのみ実装
+                </script>
+            </section>
+
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ### ユビキタス言語と実装をプロトタイプで共有・説明
+
+                    - 前提であるアーキテクチャの共有
+                    - 大枠のユビキタス言語が共有できたらプロトタイプを捨てて新しく作り直した
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ### スプリント内で使えるドメインモデルを実装した
+
+                    - モデルをストーリーから探す
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ### レイヤー化アーキテクチャに組み込む
+
+                    - 放って置くと他のレイヤからDomainレイヤが侵食される
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    # チームメンバーにDDDに関するアンケートをとってみた
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## DDDやってみて効果あった？
+
+                      * 効果が無いと答えた人はいなかった
+                      * エンジニア・非エンジニアの間で、コミュニケーションしやすくなった
+                      * 新しいメンバーが参画してもコンテキストやモデル知識を共有しやすい
+                      * レイヤー化アーキテクチャを採用したことでソフトウェアの構造が明確になった
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## 苦労した点は？
+
+                      * 全員がDDDを知っている必要がある
+                      * リポジトリーパターンとシャーディングなどの技術的な問題と相性が悪かった
+                      * DDD本が抽象的すぎて設計と実装が人によりけり
+                      * ドメイン/非ドメインコードの区別ができるようになるのに苦労した
+                      * エンティティのIDとDBMSのシーケンスとの相性の悪さ
+                </script>
+            </section>
+
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## 読書会を実施した効果はあった？
+
+                      * どちらとも言えないという人が一人いた
+                      * ユビキタス言語の重要性を理解できた
+                      * 知識に対する共通基盤が作れたという効果があった
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## 次もDDDを採用したいか？
+
+                      * どちらとも言えない=4、はい=1
+                      * 規模や期間によってどの程度使っていくか分からないが、エッセンスは使っていくと思う
+                      * プロジェクトによりけり
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## DDDの難しさ
+
+                      * チームの全員がある程度DDDを理解する必要がある
+                      * 同じ言葉でも捉え方は様々であり、問題が発生するまでわからない
+                      * シャーディングなどの技術的な問題にぶつかった時にDDDと技術の妥協点を探す
+                </script>
+            </section>
+
+        </section>
+
+        <section data-background="#94A8C4">
+            <section data-markdown="">
+                <script type="text/template">
+                    # まとめ、感想
+                </script>
+            </section>
+
+            <section data-markdown="">
+                <script type="text/template">
+                    ## まとめ・感想
+
+                      * DDD本は途中まで読んで参加したが同じく途中で挫折する人多し。
+                      * ソフトウェア開発の設計における心構えや方針なので知っておいて損はないかんじ。ただしチームで統一して適用するのはハードルが高い。
+                      * オブジェクト指向、UMLモデリングなどの設計技法に対する十分な知識と経験がないとDDDは厳しい。
+                      * ユビキタス言語やコアドメインの蒸溜などはモデリングというよりは円滑にプロジェクトを進めるためのテクニックに近い。
+                      * 具体的に適用するのであれば[こちら](http://www.slideshare.net/masuda220/ss-34813564)が現実的か。
+                </script>
+            </section>
+        </section>
+
+        <section>
+            <section data-markdown="">
+                <script type="text/template">
+                    # 関連リンク
+
+                    * [JJUG ナイトセミナー 「6.11 ドメイン駆動設計特集！ 」 6月11日(水)](http://www.java-users.jp/?p=1209)
+                </script>
+            </section>
+        </section>
+
+        <section>
+            <section data-markdown="">
+                <script type="text/template">
+                    # END
+                </script>
+            </section>
+        </section>
+    </div>
+
+</div>
+
+<script src="lib/js/head.min.js"></script>
+<script src="js/reveal.min.js"></script>
+
+<script>
+
+    // Full list of configuration options available here:
+    // https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+
+        theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+        transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+        // Parallax scrolling
+        // parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+        // parallaxBackgroundSize: '2100px 900px',
+
+        // Optional libraries used to extend on reveal.js
+        dependencies: [
+            { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+            { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+            { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+            { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+            { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+            { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+        ]
+    });
+
+</script>
+
+</body>
+</html>
