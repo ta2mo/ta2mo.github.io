@@ -4,7 +4,7 @@
   <title><![CDATA[Category: 勉強会 | 776]]></title>
   <link href="http://yoursite.com/blog/categories/mian-qiang-hui/atom.xml" rel="self"/>
   <link href="http://yoursite.com/"/>
-  <updated>2014-06-13T03:35:50+09:00</updated>
+  <updated>2014-08-31T22:08:29+09:00</updated>
   <id>http://yoursite.com/</id>
   <author>
     <name><![CDATA[naokun776]]></name>
@@ -12,6 +12,174 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[API Meetup Tokyo #2]]></title>
+    <link href="http://yoursite.com/blog/2014/08/31/api-meetup-tokyo-number-2/"/>
+    <updated>2014-08-31T22:00:00+09:00</updated>
+    <id>http://yoursite.com/blog/2014/08/31/api-meetup-tokyo-number-2</id>
+    <content type="html"><![CDATA[<p><a href="http://api-meetup.doorkeeper.jp/events/13714">API Meetup Tokyo #2</a>に参加してきました。
+そのメモと感想。</p>
+
+<!-- more -->
+
+
+<h1>API Meetup Tokyo #2</h1>
+
+<h1>クラウドサービスのAPIとそのユースケース by 伊藤直也</h1>
+
+<h3><a href="https://speakerdeck.com/naoya/kuraudosabisufalse-web-api-tosofalseyusukesu-number-apijp">資料</a></h3>
+
+<ul>
+<li><p>[過去]Web APIの変遷</p>
+
+<ol>
+<li>xml Webサービス: 業務ロジックを公開サービスとして組み合わせて一つの業務を実現した</li>
+<li>仕様の標準化の流れ SOAP/UDDI/WSDL</li>
+<li><p>Web2.0→APIを公開する流れ</p></li>
+<li><p>業務ロジックを公開する? → 業務ロジックはそんなになかった…</p></li>
+<li><p>ロジックではなくデータを公開する方向に</p></li>
+<li><p>REST</p></li>
+<li><p>SOAPとの対比の文脈で語られていた</p></li>
+<li><p>Ajaxの発見</p></li>
+<li><p>(XML) Webサービス→Web APIに</p></li>
+<li><p>マッシュアップ：多くは〇〇と△△を一緒に表示してみた=業務を構築するというよりデータを組み合わせただけ・・・</p></li>
+<li><p>Web2.0のWeb APIはWebサービス同士を組み合わせて業務を紡ぐというところまでできていなかった</p></li>
+<li><p>突然のAWS!!→うまくいったSOAの代表</p></li>
+<li><p>Programmableかつ需要が先にあることが大事</p></li>
+<li><ul>
+<li>as a Service</li>
+</ul>
+</li>
+<li><p>Parse</p></li>
+<li><p>BigQuery etc&hellip;</p></li>
+<li><ul>
+<li>as a Serviceを駆使して業務を構築する</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><p>[現在]それを使うユースケース</p>
+
+<ol>
+<li><p>インフラ構成の継続的デリバリー</p></li>
+<li><p>e.g. slack &ndash;> github &ndash;> CircleCI &ndash;> AWS</p></li>
+<li><p>発想の転換</p></li>
+<li><p>かつて：ライブラリ、OSSなどを選択肢に案を寝る</p></li>
+<li>いま：クラウドサービスを探す、サービスとサービスを組み合わせる</li>
+</ol>
+</li>
+<li><p>[未来]WebシステムのアーキテクチャのトレンドとProgramable Web</p>
+
+<ol>
+<li><p>注目キーワード</p></li>
+<li><p>microservice、Immutable Infrastructure</p></li>
+<li><p>microservices</p></li>
+<li><p>モノリシックなWebアプリケーションがでかくなるとメンテナビリティが落ちる、適当な役割で切り出してWeb APIなどでつなげましょう</p></li>
+<li><p>Immutable Infrastructure</p></li>
+<li><p>e.g. Herokuのコンテナ</p></li>
+<li>Imutable：その上で動くWebアプリは再現可能でなければいけない→誰の環境でも再現可能</li>
+<li><p>Heroku Button</p></li>
+<li><p>Heroku Buttonの意味</p></li>
+<li><p>URIでWebアプリケーション交換</p></li>
+</ol>
+</li>
+</ul>
+
+
+<h1>番組表API &ndash; 放送通信連携とAPIのこれから by NHK 放送技術研究所 中川俊夫</h1>
+
+<ul>
+<li><p>Web以外のサービス</p>
+
+<ul>
+<li>RSS</li>
+<li>動画・画像・音声素材</li>
+<li>API：NHK番組表API(2014/01〜)</li>
+</ul>
+</li>
+<li><p>他の放送局の先行事例</p>
+
+<ul>
+<li><p>BBC</p>
+
+<ul>
+<li>ラジオ番組情報やWild Lifeのデータ、LODやセマンティックウェブへの取り組み</li>
+</ul>
+</li>
+<li><p>ESPN(米)</p>
+
+<ul>
+<li>選手や試合など様々なスポーツデータ</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>NHKの番組表</p>
+
+<ul>
+<li>EPGベースの番組表</li>
+<li>ラジオ3波</li>
+<li>当日と翌日の2日分</li>
+</ul>
+</li>
+<li><p>番組表のAPI</p>
+
+<ol>
+<li>放送用の編成情報のシステム</li>
+<li><p>インターネット用番組表DB</p></li>
+<li><p>事業者向け番組表(B2B)</p></li>
+<li><p>API公開</p></li>
+</ol>
+</li>
+<li><p>APIの概要</p>
+
+<ul>
+<li>提供範囲は2日分</li>
+<li>データの更新は1日1回</li>
+<li>放送とネットラジオでは内容が異なっていることがある</li>
+<li>放送休止も番組扱い(!?)</li>
+<li><p>放送終了時間は未定のことも</p>
+
+<ul>
+<li>e.g. 災害番組 etc&hellip;</li>
+</ul>
+</li>
+<li><p>EPGとWeb APIでは文字が異なっている</p></li>
+<li>現在の放送している番組と違うことがある</li>
+</ul>
+</li>
+<li><p>API公開について</p>
+
+<ul>
+<li>社内で様々な形でAPIで連携していた</li>
+<li>負荷や運用、情報の内容から限定的にして公開</li>
+</ul>
+</li>
+<li><p>将来</p>
+
+<ul>
+<li>スマホやWebから放送へ誘導する口に</li>
+<li>NHKだけでなく他局も公開したりする流れになれば・・・</li>
+<li>放送とはNHK・民法の両方あってこそ</li>
+<li>ガラケーからスマホへ</li>
+<li>視聴から実行動への繋がり、その計測</li>
+<li>囲い込みから、サービス連携・オープンデータへ</li>
+</ul>
+</li>
+</ul>
+
+
+<h1>感想</h1>
+
+<ul>
+<li>SOAからmicroservicesへの変遷を理解することでナウいAPI設計や指針に役立ちそう</li>
+<li>NHKの例もそうだが業務を回すために需要ありきでAPIの実装や公開するべき</li>
+<li>これRebuild.fmで聞いたやつや!</li>
+</ul>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[JJUG_DDDに参加してみたメモ]]></title>
