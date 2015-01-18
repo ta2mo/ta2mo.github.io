@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <title>scala and god</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="css/reveal.min.css">
+    <link rel="stylesheet" href="css/theme/beige.css" id="theme">
+
+    <!-- For syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <!-- If the query includes 'print-pdf', use the PDF print sheet -->
+    <script>
+        document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+    </script>
+
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-48150028-6', 'naokun776.github.io');
+        ga('send', 'pageview');
+    </script>
+</head>
+
+<body>
+<div class="reveal">
+    <div class="slides">
+        <section>
+            <h1>Scalaと神</h1><br>
+        </section>
+
+        <section data-markdown="">
+            <script type="text/template">
+                # 本日のテーマ
+
+                _ 〜 scala神は言った。「コンパイルよ速くあれ。」 〜 _
+            </script>
+        </section>
+
+        <section>
+            <section data-markdown="">
+                <script type="text/template">
+                    # Scalaとは
+
+                    - スイスのローザンヌ大学のMartin Odersky教授(通称 小田好先生)が設計
+                    - JVM上で動く
+                    - オブジェクト指向と関数型をいいかんじに取り入れた
+                    - JavaでできることはScalaでもできる
+                </script>
+            </section>
+        </section>
+
+        <section>
+            <section data-markdown="">
+                <script type="text/template">
+                    # 主観的なScala界隈の話題
+
+                    - 次期Scalaバージョンの新機能
+                    - コンパイル中にコーヒー入れるのが日課
+                    - コンパイル中に音楽流すplugin作ったったwwww
+                    - etc...
+                </script>
+            </section>
+        </section>
+
+        <section>
+            <section data-markdown="">
+                <script type="text/template">
+                    # scala使い共通話題
+
+                    ＿人人人人人人人人人人＿  
+                    ＞　コンパイルが遅い　＜  
+                    ￣Y^Y^Y^Y^Y^Y^Y^Y^Y￣  
+                </script>
+            </section>
+        </section>
+
+        <section>
+            <section data-markdown="">
+                <script type="text/template">
+                    # 本当にScalaのコンパルは遅いのか。
+
+                    - Scala版Play FrameworkとJava版Play Frameworkをコンパイルしてみた
+                      - Play Framework 2.2
+                        - Scala 2.14
+                        - Java 1.7
+
+                    ```
+                      # 実行コマンド
+                      sbt clean
+                      sbt update
+                      time sbt compile
+                    ```
+
+                </script>
+            </section>
+        </section>
+
+        <section>
+            <section data-markdown="">
+                <script type="text/template">
+                    # 結果
+
+                    - Scala
+                      - real 0m11.946s
+                      - user 0m31.045s
+                      - sys 0m1.180s
+
+                    - Java
+                      - real 0m12.089s
+                      - user 0m32.306s
+                      - sys 0m1.298s
+                </script>
+            </section>
+        </section>
+
+        <section>
+            <section data-markdown="">
+                <script type="text/template">
+                    # 考察
+
+                    - かんそう: あれれ！？
+                    - もしかして: sbtが遅い
+                    - もしかして: scalaコンパイラの進化
+                    - たぶん: コンパイル対象のソースが単純
+                    - わかったこと: ユーザの体感時間としては遅い
+                </script>
+            </section>
+        </section>
+
+        <section>
+            <section data-markdown="">
+                <script type="text/template">
+                    # 神の発言
+
+                    \ コンパイラよ速くなーれ /
+
+                    ![なーれ](./img/odersky.jpg)
+                </script>
+            </section>
+        </section>
+
+        <section>
+            <section data-markdown="">
+                <script type="text/template">
+                    # Dotty
+
+                    - 新Scalaコンパイラ
+                    - 小田好先生がScala本体をほっぽり出して開発してたという噂([出典](http://d.hatena.ne.jp/xuwei/20140214/1392406764))
+                    - 通常の3倍早いという噂([出典:要検証](http://www.slideshare.net/kiris60/scala-benchmarks))・・・
+                    - まだ検証段階ぽい
+                </script>
+            </section>
+        </section>
+
+        <section>
+            <section data-markdown="">
+                <script type="text/template">
+                    # 見せてもらおうか。Dottyの性能とやらを。
+
+                    - -時間切れ-
+                </script>
+            </section>
+        </section>
+
+        <section>
+            <section data-markdown="">
+                <script type="text/template">
+                    # まとめ
+
+                    - 創造神もコンパイル速度に関して憂慮されているご様子
+                    - sbt compileのターンアラウンドタイムが長い疑惑
+                    - コンパイル中に[音楽を流すsbtプラグイン](https://github.com/tototoshi/sbt-musical)等コンパイルを楽しくするソリューションも登場している
+                </script>
+            </section>
+        </section>
+
+        <section>
+            <section data-markdown="">
+                <script type="text/template">
+                    # 参考資料
+
+                    - [Scalaのコンパイル速度の話が聞きたいだろうし、するつもりだ](http://www.slideshare.net/kiris60/scala-benchmarks)
+                    - [lampepfl/dotty](https://github.com/lampepfl/dotty)
+                    - [コンパイル中に音楽を流せる sbt プラグインを作りました。](http://tototoshi.hatenablog.com/entry/20130614/1371221918)
+                </script>
+            </section>
+        </section>
+
+        <section>
+            <section data-markdown="">
+                <script type="text/template">
+                    # END
+                </script>
+            </section>
+        </section>
+    </div>
+
+</div>
+
+<script src="lib/js/head.min.js"></script>
+<script src="js/reveal.min.js"></script>
+
+<script>
+
+    // Full list of configuration options available here:
+    // https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+
+        theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+        transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+        // Parallax scrolling
+        // parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+        // parallaxBackgroundSize: '2100px 900px',
+
+        // Optional libraries used to extend on reveal.js
+        dependencies: [
+            { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+            { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+            { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+            { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+            { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+            { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+        ]
+    });
+
+</script>
+
+</body>
+</html>
