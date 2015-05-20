@@ -1,0 +1,368 @@
+<!doctype html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <title>Google Analytics勉強会 in GEEK GARAGE</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="css/reveal.min.css">
+    <link rel="stylesheet" href="css/theme/beige.css" id="theme">
+
+    <!-- For syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <!-- If the query includes 'print-pdf', use the PDF print sheet -->
+    <script>
+        document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+    </script>
+
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-48150028-6', 'naokun776.github.io');
+        ga('send', 'pageview');
+    </script>
+</head>
+
+<body>
+<div class="reveal">
+  <div class="slides">
+    <section>
+      <section data-markdown="">
+        <script type="text/template">
+            # Google Analytics API(3.0)をScalaから使ってみた
+
+            Growth Hack Studio Inc.
+            谷本 尚人([naokun776](https://github.com/naokun776))
+        </script>
+      </section>
+    </section>
+
+    <section data-background="#BAC494">
+      <section data-markdown="">
+        <script type="text/template">
+          # GAのよいところ
+        </script>
+      </section>
+
+      <section data-markdown="">
+        <script type="text/template">
+            ## なんで分析したいのか(Why)
+
+            - 売上向上!!
+            - PV増加!!
+            - 利用者増加!!
+        </script>
+      </section>
+
+      <section data-markdown="">
+        <script type="text/template">
+            ## なんで分析したいのか(Why)
+
+            - 売上向上!! (←EC向け?)
+            - PV増加!! (←メディア向け?)
+            - 利用者増加!! (←なんらかのWebサービス向け?)
+        </script>
+      </section>
+
+      <section data-markdown="">
+        <script type="text/template">
+            ## そもそも何を分析したいのか(What)
+
+            - PV
+            - ユーザ行動
+            - ユーザ属性
+            - 流入経路
+            - CVフロー離脱率
+            - etc...
+        </script>
+      </section>
+
+      <section data-markdown="">
+        <script type="text/template">
+            ## GAでどうやって分析するのか(How)
+
+            - Webの分析画面
+              - 数値レポート
+              - コホート分析
+              - 画面遷移
+              - コンバージョンフロー分析 etc...
+            - API経由
+              - データ取得
+              - オリジナルのレポート
+              - 他システム連携
+              - 自動レポート出力 etc...
+        </script>
+      </section>
+
+      <section data-markdown="">
+        <script type="text/template">
+            ## WEB画面ではなくGoogle Analytics APIを使う目的(想像)
+
+            - カスタムレポートでは飽き足らない方
+            - レポートの見た目がイケてないと思う方
+            - 別システムと連携したい方
+            - GAはデータを格納するだけで自分で弄りたい派
+            - APIがあれば叩いてみちゃう方
+        </script>
+      </section>
+    </section>
+
+    <section data-background="#F796A4">
+      <section data-markdown="">
+        <script>
+          ## 突然のステマ
+
+          - GEEK GARAGEよいところ
+
+            - 落ち着いている(内・外)
+            - お手頃なpricing
+            - 席に余裕がある
+        </script>
+      </section>
+    </section>
+
+    <section data-background="#809142">
+      <section data-markdown="">
+        <script type="text/template">
+            ## Google Analytics APIでは何ができるのか？
+
+            - データの格納(Collection API)
+              - →js、Android/iOS向けSDK、WEB API
+
+            - Web画面で表示している値の取得(Reporting API)
+
+            - GAの設定変更(Configuration API)
+              - →目標設定(Management API) ect...
+        </script>
+      </section>
+
+      <section data-markdown="">
+        <script type="text/template">
+            # 大雑把なAPI関連図
+
+
+        </script>
+      </section>
+
+      <section>
+          ＿人人人人人人人人人人人人人人人人＿<br>
+          ＞　詳細は公式ドキュメントにある　＜<br>
+          ￣Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y￣<br>
+      </section>
+
+      <section data-markdown="">
+        <script type="text/template">
+          ## 公式Document
+
+          [DocumentのURLはコチラ](https://developers.google.com/analytics/?hl=ja)
+        </script>
+      </section>
+    </section>
+
+    <section>
+      <section data-markdown="">
+        <script type="text/template">
+            # 本題:レポーティング用にAPIから値を取得してみる
+        </script>
+      </section>
+
+      <section data-markdown="">
+        <script type="text/template">
+            ## API準備
+
+            1. Google Analyticsをサイトに導入し、値がとれていることを確認する
+            1. [Google APIチュートリアル](https://developers.google.com/analytics/solutions/articles/hello-analytics-api?hl=ja)をやってみる
+        </script>
+      </section>
+    </section>
+
+    <section>
+      <section data-markdown="">
+        <script type="text/template">
+            ### APIで困ったこと
+
+            - Q. GoogleのOAuthでうまくいかない・・・
+            - A. https://developers.google.com/oauthplayground/ で試してみる
+         </script>
+      </section>
+      <section data-markdown="">
+        <script type="text/template">
+            ### APIで困ったこと
+
+            - Q. データがおかしい、リクエストがうまくできない
+            - A. https://developers.google.com/oauthplayground/ で試してみる
+        </script>
+      </section>
+      <section data-markdown="">
+        <script type="text/template">
+          # OAuth 2.0 Playgroundのデモ
+        </script>
+      </section>
+    </section>
+
+    <section>
+      <section data-markdown="">
+        <script type="text/template">
+            # 参考資料
+
+            - [Google Analytics デベロッパーおよびリファレンス](https://developers.google.com/analytics/devguides/?hl=ja)
+            - [OAuth 2.0 Playground](https://developers.google.com/oauthplayground/)
+        </script>
+      </section>
+    </section>
+
+    <section>
+        <section data-markdown="">
+            <script type="text/template">
+                # END
+            </script>
+        </section>
+    </section>
+  </div>
+
+</div>
+
+<!--
+# Google Analytics API(3.0)を使ってみた
+
+谷本 尚人(@naokun776)
+
+## そもそもなんで分析したいのか(Why)
+
+- 売上向上!!
+- PV増加!!
+- 利用者増加!!
+
+## そもそもなんで分析したいのか(Why)
+
+- 売上向上!! (←EC向け?)
+- PV増加!! (←メディア向け?)
+- 利用者増加!! (←なんらかのWebサービス向け?)
+
+## そもそも何を分析したいのか(What)
+
+- PV
+- ユーザ行動
+- ユーザ属性
+- 流入経路
+- CVフロー離脱率
+- etc...
+
+## WEB画面ではなくGoogle Analytics APIを使う目的(想像)
+
+- カスタムレポートでは飽き足らない方
+- レポートの見た目がイケてないと思う方
+- 別システムと連携したい方
+- GAはデータを格納するだけで自分で弄りたい派
+- APIがあれば叩いてみちゃう方
+
+## Google Analytics APIではなにができるのか？
+
+- データの格納(Collection API)
+  - js、Android/iOS向けSDK、WEB API
+- Web画面で表示している値の取得(Reporting API)
+- GAの設定変更(Configuration API)
+  - 目標設定(Management API)　ect...
+
+詳細は[ドキュメント](https://developers.google.com/analytics/?hl=ja)を参照
+
+# 本題:レポーティング用にAPIから値を取得してみる
+
+## API準備
+
+1. Google Analyticsをサイトに導入し、値がとれていることを確認する
+1. [Google APIチュートリアル](https://developers.google.com/analytics/solutions/articles/hello-analytics-api?hl=ja)をやってみる
+1. 自分のサービスに組み込んでみる
+
+## 質問
+
+Q. Google Analytics(以下GA)で困ったことありませんか？
+Q. ぶっちゃけGAをどう活用していいかわからない方?
+
+## 弊社Growth Hack Studioが解決!!
+
+- GAと同じ方法で簡単導入
+- グロースハックの観点からAARRRの形で表示
+- モバイルアプリ向けSDK提供(予定)
+
+# APIで困ったこと
+
+Q. GoogleのOAuthでうまくいかない・・・
+A. https://developers.google.com/oauthplayground/ で試してみる
+Q. データがおかしい、リクエストがうまくできない
+A. https://developers.google.com/oauthplayground/ で試してみる
+
+# Appnedix
+
+# PlayFrameworkで導入する場合
+
+- サンプルコード
+  - TODO:URL書く
+
+## 実装した全体の処理概要
+
+1. OAuth認証 or ID・パスワード認証
+1. GAのアカウント、プロパティ、ビューの情報を取得
+1. レポート表示
+
+## ライブラリ設定
+
+build.sbtに追加する。
+
+```
+libraryDependencies ++= Seq(
+    "com.google.api-client" % "google-api-client" % "1.20.0"
+    , "com.google.apis" % "google-api-services-analytics" % "v3-rev114-1.20.0"
+    , "com.google.apis" % "google-api-services-plus" % "v1-rev217-1.20.0"
+    , "com.google.oauth-client" % "google-oauth-client" % "1.20.0"
+    , "com.google.oauth-client" % "google-oauth-client-java6" % "1.20.0"
+    , "com.google.oauth-client" % "google-oauth-client-jetty" % "1.20.0"
+    , "com.fasterxml.jackson.core" % "jackson-core" % "2.5.1"
+)
+```
+
+-->
+
+
+<script src="lib/js/head.min.js"></script>
+<script src="js/reveal.min.js"></script>
+
+<script>
+
+    // Full list of configuration options available here:
+    // https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+
+        theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+        transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+        // Parallax scrolling
+        // parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+        // parallaxBackgroundSize: '2100px 900px',
+
+        // Optional libraries used to extend on reveal.js
+        dependencies: [
+            { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+            { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+            { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+            { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+            { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+            { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+        ]
+    });
+
+</script>
+
+</body>
+</html>
