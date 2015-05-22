@@ -303,7 +303,7 @@
             val analytics = Google.getAnalytics(accessToken)
             val datas =
               analytics.data.ga
-                  .get(s"ga:$profileId", startDate, endDate, "ga:newUsers")
+                  .get(s"ga:$profileId", startDate, endDate, "ga:users")
                   .setDimensions("ga:date")
                   .setFilters("ga:pagePath=@/product/list")
                   .execute()
@@ -328,7 +328,7 @@
             val analytics = Google.getAnalytics(accessToken)
             val datas =
               analytics.data.ga
-                  .get(s"ga:$profileId", startDate, endDate, "ga:newUsers")
+                  .get(s"ga:$profileId", startDate, endDate, "ga:users")
                   .setDimensions("ga:date")
                   .setSegment("users::sequence::ga:goal3Completions>=1;->>ga:goal4Completions>=1;->>ga:goal5Completions>=1")
                   .execute()
