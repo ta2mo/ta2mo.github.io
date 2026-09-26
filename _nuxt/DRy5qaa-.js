@@ -1,0 +1,13 @@
+import{E as e,M as t,P as n,at as r,et as i,k as a,pt as o}from"./BAHQ79s_.js";import{a as s,t as c}from"#entry";var l={},u={class:`content is-medium`},d={class:`box`},f={class:`level`},p={class:`level-left`},m={class:`level-item`},h={class:`level-right`},g={class:`level-item`};function _(c,l){let _=r(`adsbygoogle`),v=s;return i(),a(`div`,null,[e(`div`,u,[e(`div`,d,[l[0]||=t(`<span class="label is-medium" data-v-78e7284f>2018-11-14</span><h1 id="2018-11-14-nuxt-js-sitemap" class="title" data-v-78e7284f>Nuxt.jsを使っているブログでsitemap.xmlが作成されるようにしました</h1><div class="content" data-v-78e7284f><p data-v-78e7284f>今まではJekyllを利用していたのでsitemap.xmlも自動で生成されていたのですが、標準のNuxt.jsの構成だと生成されません。 SEOを考えると生成したほうが良いと思ったので<a href="https://github.com/nuxt-community/sitemap-module" rel="nofollow" data-v-78e7284f>Sitemap Module</a>を利用して生成されるようにしました。</p><h2 data-v-78e7284f><a aria-hidden="true" class="anchor" href="#%E4%BD%9C%E6%A5%AD%E5%86%85%E5%AE%B9" name="作業内容" rel="nofollow" data-v-78e7284f><span class="octicon octicon-link" data-v-78e7284f></span></a> 作業内容</h2><ol data-v-78e7284f><li data-v-78e7284f><p data-v-78e7284f>yarnで追加</p><pre data-v-78e7284f><code data-v-78e7284f>$ yarn add @nuxtjs/sitemap
+</code></pre></li><li data-v-78e7284f><p data-v-78e7284f>nuxt.config.jsに追記</p><pre data-v-78e7284f><code data-v-78e7284f>modules: [
+  [&#39;@nuxtjs/google-analytics&#39;, {
+    id: &#39;UA-48150028-1&#39;
+  }],
+  &#39;@nuxtjs/sitemap&#39; // &lt;-追記
+],
+sitemap: { // &lt;-追記
+  path: &#39;/sitemap.xml&#39;,
+  hostname: &#39;https://ta2mo.github.io&#39;,
+  generate: true,
+}
+</code></pre></li><li data-v-78e7284f><p data-v-78e7284f>nuxt generate</p></li></ol><h2 data-v-78e7284f><a aria-hidden="true" class="anchor" href="#%E3%81%BE%E3%81%A8%E3%82%81" name="まとめ" rel="nofollow" data-v-78e7284f><span class="octicon octicon-link" data-v-78e7284f></span></a> まとめ</h2><p data-v-78e7284f>静的ファイルにする場合には <code data-v-78e7284f>yarn</code> でライブラリをサクッと導入し、 <code data-v-78e7284f>nuxt.config.js</code> に追記するだけでよしなにしてくれるのは手軽でした。</p></div>`,3),n(_)])]),e(`nav`,f,[e(`div`,p,[e(`div`,m,[n(v,{to:`/post/2018-11-22-new-mac-moving`},{default:o(()=>[...l[1]||=[e(`p`,{class:`heading`},`←Newer`,-1),e(`span`,null,`Macの移行アシスタントつかったらgo buildできなくなった`,-1)]]),_:1})])]),e(`div`,h,[e(`div`,g,[n(v,{to:`/post/2018-11-09-blog-renewal`},{default:o(()=>[...l[2]||=[e(`p`,{class:`heading`},`Older→`,-1),e(`span`,null,`Nuxt.jsを使ってブログをリニューアルしました`,-1)]]),_:1})])])])])}var v=c(l,[[`render`,_],[`__scopeId`,`data-v-78e7284f`]]);export{v as default};
